@@ -1,9 +1,10 @@
-# eSekretar — skraćena lista za YouTrack (~60 taskova)
+# eSekretar - skracena lista za YouTrack (~60 taskova)
 
-Ručni unos. Najprije napravi **6 epika faza** (F1–F6), pa taskove kao **subtask** odgovarajuće faze.  
-Za F3 module možeš praviti i epike modula (INF, STU…), ali nije obavezno — dovoljno je Type=Task + polje **Faza** + tag FR.
+**Detaljan opis sta i kako uraditi za svaki task:**  
+`eSekretar/TIM-DOKUMENTACIJA.md` -> **sekcija 12** (lokalno, van Gita).
 
-**Polja na svakom issue-u:** Type, State=Open, Assignee, Due Date, MoSCoW, Faza, tagovi FR-xx po potrebi.
+Ovaj fajl = naslovi za YouTrack. Najprije epici F1-F6, pa taskovi kao subtask.  
+Polja: Type, State=Open, Assignee, Due Date, MoSCoW, Faza, tagovi FR-xx.
 
 ### Zašto YouTrack kaže M-01, a plan STU-01?
 
