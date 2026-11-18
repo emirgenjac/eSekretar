@@ -65,7 +65,7 @@ Linkovi: F2 depends on F1 → F3 on F2 → … → F6 on F5.
 | A-03 | Poslovni procesi, uloge ADMIN/SEKRETAR, use case dijagram i opisi | Emin | FR-02, Must |
 | A-04 | Napisati listu funkcionalnih (FR-01 do FR-23) i nefunkcionalnih (NFR-01 do NFR-08) zahtjeva sa MoSCoW prioritetom | Emir (+Adnan NFR) | Must |
 | A-05 | SRS v1.0 (spajanje svega) | Emir | Must |
-| A-06 | Review SRS-a i potvrda klijenta (M1) | Emir | milestone, Must |
+| A-06 | Review SRS-a u timu (M1) — bez obavezne potvrde klijenta na SRS | Emir | milestone, Must |
 
 ---
 
@@ -93,7 +93,7 @@ Linkovi: F2 depends on F1 → F3 on F2 → … → F6 on F5.
 | E-03 | Prijava, uloge, Session, login, korisnici (ADMIN), BCrypt + testovi | 10.12. | FR-01…03 |
 | E-04 | Postavke, tema (svijetla/tamna), notifikacije (okvir: zvonce, toast) | 17.12. | FR-18, FR-20 |
 | E-05 | Custom upiti (view, QueryBuilder, UI, šabloni, export) | 17.12. | FR-16 |
-| E-06 | Uvoz postojećeg Excel-a + izvještaj "Pregled kao Excel" | 17.12. | FR-21, FR-15 |
+| E-06 | Uvoz postojećeg Excel-a + izvještaj "Pregled kao Excel" + export .xlsx (rezerva) | 17.12. | FR-21, FR-15 |
 
 ---
 
@@ -117,7 +117,7 @@ Linkovi: F2 depends on F1 → F3 on F2 → … → F6 on F5.
 | N-02 | Sobe: CRUD, pregled po spratovima, detalji, filteri + testovi | 10.12. | FR-07, FR-08 |
 | N-03 | Smještaj: zaduženje, premještanje, razduženje + dijalozi | 10.12. | FR-09 |
 | N-04 | Uplate: DAO/servis, dug po cijeni, dijalog, matrica kao Excel, dugovanja | 17.12. | FR-12 |
-| N-05 | Izvještaji PDF/Excel (predefinisani) + export dugmad | 17.12. | FR-15 |
+| N-05 | Izvještaji PDF + .xlsx (predefinisani) + export dugmad | 17.12. | FR-15 |
 | N-06 | Backup/restore + pravila notifikacija (neplaćeno, backup) | 17.12. | FR-19, FR-18 |
 
 ---
