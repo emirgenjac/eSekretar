@@ -4,12 +4,12 @@
 | --- | --- |
 | **Projekat** | eSekretar |
 | **Klijent** | JU Studentski centar Zenica (Crkvice 50, Zenica) |
-| **Verzija** | **1.5** (final F1 — bez obavezne potvrde klijenta na SRS) |
+| **Verzija** | **1.6** (A-03: dijagram PNG + kratki PDF opis) |
 | **Datum** | 18.11.2026 |
 | **Autor** | Emir Genjac (voditelj) |
 | **Tim** | Emir Genjac, Emin Ahbabović, Adnan Jašarević |
-| **Status** | F1 Analiza — spremno za tim review (A-06) i zatvaranje M1 |
-| **YouTrack** | ESK / A-05 |
+| **Status** | F1 sadržaj kompletan — ostaje samo A-06 (tim review / M1) |
+| **YouTrack** | ESK / A-05 · ESK-12 |
 | **Metoda** | Waterfall + Change Request |
 
 ---
@@ -48,7 +48,8 @@ Desktop aplikacija za evidenciju studenata u studentskom domu: lični podaci, pr
 
 - YouTrack KB: opis projekta i zahtjevi
 - `docs/youtrack/TASKOVI-SKRACENO.md`
-- Primjer reda Excela (§8.2) — dovoljan za mapiranje; puni produkcijski Excel nije potreban (demo podaci = mock seed u F3)
+- **A-03 use case:** dijagram [`docs/dijagrami/use-case.png`](dijagrami/use-case.png), kratki opis [`docs/dijagrami/use-case-opis.pdf`](dijagrami/use-case-opis.pdf)
+- Primjer reda Excela (§8.2) — dovoljan za mapiranje; demo = mock seed u F3
 - Kolone izvještaja ministarstva (§8.5)
 
 ### 1.5 Struktura dokumenta
@@ -106,7 +107,8 @@ Puni pristup uključuje: studente, smještaj, uplate, izvještaje (**PDF i Excel
 
 ## 4. Poslovni procesi
 
-(Dijagram / detaljni UC tokovi: A-03 → `docs/`.)
+Sažetak ispod. Dijagram: [`docs/dijagrami/use-case.png`](dijagrami/use-case.png).  
+Kratki opis: [`docs/dijagrami/use-case-opis.pdf`](dijagrami/use-case-opis.pdf).
 
 ### 4.1 Prijem
 
@@ -142,9 +144,19 @@ Odabir `.xlsx` → pregled → validacija → uvoz u transakciji za AG.
 
 ---
 
-## 5. Use case pregled
+## 5. Use case
 
-Detaljni tokovi: A-03. Ovdje ID ↔ FR.
+### 5.1 Dijagram (A-03)
+
+![eSekretar use case dijagram](dijagrami/use-case.png)
+
+Dijagram: [`docs/dijagrami/use-case.png`](dijagrami/use-case.png)  
+Kratki opis (PDF): [`docs/dijagrami/use-case-opis.pdf`](dijagrami/use-case-opis.pdf)
+
+Akteri: **Korisnik** (sekretarica), **Sistem** (notifikacije, auto-backup).  
+Sivi / iscrtkani UC = Could (FR-22, FR-23). Export PDF / `.xlsx` je `<<include>>` uz izvještaje.
+
+### 5.2 Pregled UC ↔ FR
 
 | ID | Naziv | FR |
 | --- | --- | --- |
@@ -172,8 +184,6 @@ Detaljni tokovi: A-03. Ovdje ID ↔ FR.
 | UC-22 | Uvoz Excel | FR-21 |
 | UC-23 | Audit log (Could) | FR-22 |
 | UC-24 | PDF kartica studenta (Could) | FR-23 |
-
-Akter: **Korisnik**; sekundarno **Sistem** (notifikacije, auto-backup).
 
 ---
 
@@ -402,14 +412,14 @@ Kontroler ne zove DAO. Detalji: F2.
 | 10 | Period 1.10–15.7; plaća od dolaska do odlaska |
 | 11 | App = unos; Excel = backup |
 | 12–14 | Samo sekretarica; bez Must uloga |
-| 15 | Procesi / UC dijagram → A-03 |
+| 15 | Procesi / UC → PNG dijagram + kratki PDF (§5) |
 | 16 | Uvoz Excel da |
 | 17 | Pun Excel ne treba; primjer §8.2 + mock seed |
 | 18 | Foto mandatorna, unos naknadno |
 | 19 | Ministarstvo §8.5; export **PDF i Excel** |
 | 20–21 | Primjer reda + 8 fakulteta + free unos |
 
-**Preostalo van SRS (ne blokira M1):** A-03 detaljni UC u `docs/`; F2 mockupi/ER.
+**Preostalo za F1:** samo **A-06** (tim review / M1). F2 = mockupi / ER.
 
 ---
 
@@ -417,8 +427,8 @@ Kontroler ne zove DAO. Detalji: F2.
 
 ### 12.1 Zatvaranje F1 (M1)
 
-- [ ] Tim review SRS v1.5  
-- [ ] YouTrack: A-04/A-05 Done; A-06 milestone; F1 Done  
+- [ ] Tim review SRS v1.6 (**A-06** — jedini preostali F1 korak)  
+- [ ] YouTrack milestone M1; F1 Done  
 - [ ] **Nije potrebna** potvrda klijenta na dokument SRS  
 
 ### 12.2 Change Request
@@ -433,8 +443,9 @@ Kontroler ne zove DAO. Detalji: F2.
 | Verzija | Datum | Opis |
 | --- | --- | --- |
 | 1.0–1.3 | 18.11.2026 | Inicijalni SRS; odgovori klijenta; primjer reda; ministarstvo; fakulteti |
-| 1.4 | 18.11.2026 | Export **PDF i Excel** eksplicitno; bez punog Excela (mock seed); bez obavezne potvrde klijenta na SRS; polish F1 |
-| 1.5 | 18.11.2026 | MoSCoW: Should/Won't eksplicitno; mjerljivi kriteriji prihvatanja za NFR (ESK-10) |
+| 1.4 | 18.11.2026 | Export PDF i Excel; mock seed; bez potvrde klijenta na SRS |
+| 1.5 | 18.11.2026 | MoSCoW Should/Won't; mjerljivi NFR (ESK-10) |
+| 1.6 | 18.11.2026 | A-03: dijagram PNG u §5 + `use-case-opis.pdf`; bez use-case.md |
 
 ---
 
