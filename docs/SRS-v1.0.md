@@ -4,7 +4,7 @@
 | --- | --- |
 | **Projekat** | eSekretar |
 | **Klijent** | JU Studentski centar Zenica (Crkvice 50, Zenica) |
-| **Verzija** | **1.4** (final F1 — bez obavezne potvrde klijenta na SRS) |
+| **Verzija** | **1.5** (final F1 — bez obavezne potvrde klijenta na SRS) |
 | **Datum** | 18.11.2026 |
 | **Autor** | Emir Genjac (voditelj) |
 | **Tim** | Emir Genjac, Emin Ahbabović, Adnan Jašarević |
@@ -280,22 +280,22 @@ Svijetla/tamna bez restarta; ustanova, putanje, interval backup-a.
 
 ### 6.3 MoSCoW
 
-Must: FR-01…FR-21 · Could: FR-22, FR-23 · ostalo = CR.
+Must: FR-01…FR-21 · Should: nema · Could: FR-22, FR-23 · Won't (v1.0.0): §10 Van opsega · ostalo = CR.
 
 ---
 
 ## 7. Nefunkcionalni zahtjevi
 
-| ID | Kategorija | Specifikacija | MoSCoW |
-| --- | --- | --- | --- |
-| NFR-01 | Tehnologija | Java 25, JavaFX+FXML, MySQL 8, Maven, iText, POI, Flyway, HikariCP, JUnit 5 | Must |
-| NFR-02 | Sigurnost | BCrypt; PreparedStatement; samo prijavljeni; tajne van Gita | Must |
-| NFR-03 | UX | UI bosanski; validacija; jasne poruke | Must |
-| NFR-04 | Performanse | ~300 redova &lt; 1 s; uvoz/izvoz/backup u pozadini | Must |
-| NFR-05 | Pouzdanost | Transakcije (prenos, smještaj); backup | Must |
-| NFR-06 | Održivost | Slojevi; DAO interfejsi; Flyway; testovi; CI | Must |
-| NFR-07 | Isporuka | Windows 10/11; jpackage s Javom | Must |
-| NFR-08 | Podaci | Jedna baza + foto; samo prijavljeni | Must |
+| ID | Kategorija | Specifikacija | Prihvatanje | MoSCoW |
+| --- | --- | --- | --- | --- |
+| NFR-01 | Tehnologija | Java 25, JavaFX+FXML, MySQL 8, Maven, iText, POI, Flyway, HikariCP, JUnit 5 | Projekat se gradi sa `mvn verify` na Javi 25; Flyway migracije prolaze na praznoj bazi. | Must |
+| NFR-02 | Sigurnost | BCrypt; PreparedStatement; samo prijavljeni; tajne van Gita | Nema SQL-a spojenog iz stringova (svuda PreparedStatement); lozinka baze nije u repou. | Must |
+| NFR-03 | UX | UI bosanski; validacija; jasne poruke | Svi ekrani i poruke su na bosanskom; nevalidna forma se ne snima, a polje sa greškom je označeno. | Must |
+| NFR-04 | Performanse | ~300 redova &lt; 1 s; uvoz/izvoz/backup u pozadini | Lista od ~300 redova se učitava za &lt; 1 s; UI se ne zamrzava tokom uvoza, izvoza i backupa. | Must |
+| NFR-05 | Pouzdanost | Transakcije (prenos, smještaj); backup | Greška usred prenosa ili premještaja ne ostavlja polovično stanje (rollback, pokriveno testom). | Must |
+| NFR-06 | Održivost | Slojevi; DAO interfejsi; Flyway; testovi; CI | Servisi imaju unit testove; CI je zelen prije merge-a u main; kontroler ne zove DAO. | Must |
+| NFR-07 | Isporuka | Windows 10/11; jpackage s Javom | Instalira se i radi na čistom Windows 10/11 bez posebno instalirane Jave. | Must |
+| NFR-08 | Podaci | Jedna baza + foto | Svi podaci, uključujući fotografije, su u jednoj MySQL bazi i obuhvaćeni su backupom. | Must |
 
 ---
 
@@ -417,7 +417,7 @@ Kontroler ne zove DAO. Detalji: F2.
 
 ### 12.1 Zatvaranje F1 (M1)
 
-- [ ] Tim review SRS v1.4  
+- [ ] Tim review SRS v1.5  
 - [ ] YouTrack: A-04/A-05 Done; A-06 milestone; F1 Done  
 - [ ] **Nije potrebna** potvrda klijenta na dokument SRS  
 
@@ -434,6 +434,7 @@ Kontroler ne zove DAO. Detalji: F2.
 | --- | --- | --- |
 | 1.0–1.3 | 18.11.2026 | Inicijalni SRS; odgovori klijenta; primjer reda; ministarstvo; fakulteti |
 | 1.4 | 18.11.2026 | Export **PDF i Excel** eksplicitno; bez punog Excela (mock seed); bez obavezne potvrde klijenta na SRS; polish F1 |
+| 1.5 | 18.11.2026 | MoSCoW: Should/Won't eksplicitno; mjerljivi kriteriji prihvatanja za NFR (ESK-10) |
 
 ---
 
