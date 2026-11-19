@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Custom upit</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Custom upiti</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a class="active" href="#">Custom upiti</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <select><option>2026/2027</option></select>
+          <input placeholder="Pretraga…">
+          <button class="icon-btn">🔔</button>
+          <div class="spacer"></div>
+          <button class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Custom upit</h1>
+          <div class="card">
+            <h2>Kolone (whitelist)</h2>
+            <div class="chips">
+              <span class="chip on">Prezime</span>
+              <span class="chip on">Ime</span>
+              <span class="chip on">Fakultet</span>
+              <span class="chip on">Soba</span>
+              <span class="chip">JMBG</span>
+              <span class="chip on">Dug</span>
+              <span class="chip">Općina</span>
+              <span class="chip">Kartica</span>
+            </div>
+            <h2>Filteri</h2>
+            <div class="row"><label>Fakultet</label>
+              <select><option>Politehnički fakultet</option><option>(svi)</option></select>
+            </div>
+            <div class="row"><label>Dug &gt;</label><input value="0"></div>
+            <div class="toolbar">
+              <button class="btn">Pokreni</button>
+              <button class="btn secondary">Sačuvaj šablon</button>
+              <select style="padding:4px 8px;"><option>Šablon: Dugovanja po fakultetu</option></select>
+            </div>
+          </div>
+          <h2>Rezultat</h2>
+          <table>
+            <tr><th>Prezime</th><th>Ime</th><th>Fakultet</th><th>Soba</th><th>Dug</th></tr>
+            <tr><td>Hadžić</td><td>Amina</td><td>Politehnički</td><td>19</td><td>165,00</td></tr>
+            <tr><td>Kovač</td><td>Marko</td><td>Politehnički</td><td>12</td><td>330,00</td></tr>
+          </table>
+          <div class="actions">
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

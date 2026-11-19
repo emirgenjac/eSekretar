@@ -4,7 +4,7 @@
 | --- | --- |
 | **Projekat** | eSekretar |
 | **Klijent** | JU Studentski centar Zenica (Crkvice 50, Zenica) |
-| **Verzija** | **1.6** (A-03: dijagram PNG + kratki PDF opis) |
+| **Verzija** | **1.8** (prijava e-mailom + lozinkom) |
 | **Datum** | 18.11.2026 |
 | **Autor** | Emir Genjac (voditelj) |
 | **Tim** | Emir Genjac, Emin Ahbabović, Adnan Jašarević |
@@ -184,26 +184,27 @@ Sivi / iscrtkani UC = Could (FR-22, FR-23). Export PDF / `.xlsx` je `<<include>>
 | UC-22 | Uvoz Excel | FR-21 |
 | UC-23 | Audit log (Could) | FR-22 |
 | UC-24 | PDF kartica studenta (Could) | FR-23 |
+| UC-25 | Zaboravljena lozinka / reset na e-mail (Should) | FR-24 |
 
 ---
 
 ## 6. Funkcionalni zahtjevi
 
-**Must** = v1.0.0 · **Could** = rezerva F3.
+**Must** = v1.0.0 · **Should** = željeno ako stigne (F3 rezerva) · **Could** = dodatna rezerva.
 
 ### 6.1 Must
 
 #### FR-01 Prijava i odjava
-Prijava imenom/lozinkom; BCrypt hash; odjava zatvara sesiju.  
-**Prihvatanje:** login/logout OK; pogrešna lozinka odbijena; nema plain-text lozinke u bazi.
+Prijava **e-mailom** i lozinkom; BCrypt hash; odjava zatvara sesiju. E-mail je identifikator naloga (jedinstven).  
+**Prihvatanje:** login/logout OK; pogrešan e-mail ili lozinka odbijeni; nema plain-text lozinke u bazi.
 
 #### FR-02 Pristup nakon prijave
 Prijavljeni = puni pristup (§3). Neprijavljeni = samo login. Bez Must uloga.  
 **Prihvatanje:** nakon logina dostupni backup, uvoz, cijena, korisnici.
 
 #### FR-03 Korisnici i lozinka
-CRUD naloga; vlastita lozinka; novi nalozi = puni pristup.  
-**Prihvatanje:** novi nalog radi; deaktivirani ne.
+CRUD naloga (**e-mail**, prikazno ime, lozinka, aktivan); vlastita lozinka; novi nalozi = puni pristup.  
+**Prihvatanje:** novi nalog radi (prijava tim e-mailom); deaktivirani ne.
 
 #### FR-04 Akademske godine i cijena
 AG s periodom tipično 1.10–15.7; cijena prije početka AG (UO odobrava prije konkursa); vrijedi od početka te AG; historija (npr. 150 → 165); seed **165 KM**.  
@@ -281,16 +282,27 @@ Svijetla/tamna bez restarta; ustanova, putanje, interval backup-a.
 `.xlsx` → pregled → validacija → transakcija za AG (uklj. uplate). Mapiranje po §8.2.  
 **Prihvatanje:** validan fajl (ili mock) uveze konzistentno; greške prijavljene.
 
-### 6.2 Could
+### 6.2 Should
+
+#### FR-24 Zaboravljena lozinka (reset na e-mail)
+- Na login ekranu: link **Zaboravljena lozinka?**
+- Korisnik unese **e-mail naloga** (isti identifikator kao za prijavu).
+- Sistem šalje **privremenu lozinku ili reset upute** na **e-mail sekretarice** (adresa iz postavki / naloga — konfigurabilno).
+- Nakon prijave s privremenom lozinkom, forsira se promjena lozinke (ili eksplicitni tok „postavi novu“).
+- Ne otkrivati da li nalog postoji (ista poruka uspjeha/neuspjeha u UI).
+- **Prihvatanje:** mail stigne na konfigurisanu adresu; stara lozinka više ne radi nakon uspješnog reseta; BCrypt i dalje vrijedi.
+- **Napomena:** treba SMTP (ili drugi mail provider) u postavkama; bez mreže/maila feature se ne može demonstrirati.
+
+### 6.3 Could
 
 | ID | Opis |
 | --- | --- |
 | FR-22 | Audit log |
 | FR-23 | PDF kartica studenta s fotografijom |
 
-### 6.3 MoSCoW
+### 6.4 MoSCoW
 
-Must: FR-01…FR-21 · Should: nema · Could: FR-22, FR-23 · Won't (v1.0.0): §10 Van opsega · ostalo = CR.
+Must: FR-01…FR-21 · Should: **FR-24** · Could: FR-22, FR-23 · Won't (v1.0.0): §10 · ostalo = CR.
 
 ---
 
@@ -446,6 +458,8 @@ Kontroler ne zove DAO. Detalji: F2.
 | 1.4 | 18.11.2026 | Export PDF i Excel; mock seed; bez potvrde klijenta na SRS |
 | 1.5 | 18.11.2026 | MoSCoW Should/Won't; mjerljivi NFR (ESK-10) |
 | 1.6 | 18.11.2026 | A-03: dijagram PNG u §5 + `use-case-opis.pdf`; bez use-case.md |
+| 1.7 | 19.11.2026 | Should **FR-24**: zaboravljena lozinka, reset na e-mail sekretarice (UC-25) |
+| 1.8 | 19.11.2026 | **FR-01/03**: prijava i nalog identifikovani **e-mailom** (ne korisničkim imenom) |
 
 ---
 

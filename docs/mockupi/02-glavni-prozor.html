@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Glavni prozor</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Dashboard</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a class="active" href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Dashboard</h1>
+          <div class="split">
+            <div class="card">
+              <h2>Popunjenost</h2>
+              <p class="stat">187 / 220</p>
+              <p class="muted">slobodnih mjesta: 33</p>
+            </div>
+            <div class="card">
+              <h2>Dugovanja</h2>
+              <p class="stat">12</p>
+              <p class="muted">studenata s dugom (prethodni mjesec)</p>
+            </div>
+            <div class="card">
+              <h2>Lista čekanja</h2>
+              <p class="stat">8</p>
+              <p class="muted">aktivnih na rang listi</p>
+            </div>
+            <div class="card">
+              <h2>Notifikacije</h2>
+              <ul style="margin-left:16px;line-height:1.6;">
+                <li>Backup stariji od 7 dana</li>
+                <li>3 neplaćena za oktobar</li>
+              </ul>
+            </div>
+          </div>
+          <p class="note">Wireframe glavnog prozora: meni + header (AG, pretraga, zvonce, odjava). Kartice dashboarda su skica — tačan set grafova u F2/F3.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Korisnici</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Korisnici</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a class="active" href="#">Korisnici</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <select><option>2026/2027</option></select>
+          <div class="spacer"></div>
+          <button class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Korisnici</h1>
+          <div class="toolbar">
+            <button class="btn">Novi korisnik</button>
+          </div>
+          <table>
+            <tr><th>E-mail</th><th>Ime</th><th>Status</th><th></th></tr>
+            <tr>
+              <td>sekretarica@sczenica.ba</td><td>Tehnička sekretarica</td><td>Aktivan</td>
+              <td><button class="btn secondary">Izmijeni</button>
+                  <button class="btn secondary">Reset lozinke</button></td>
+            </tr>
+            <tr>
+              <td>demo@sczenica.ba</td><td>Demo nalog</td><td>Deaktiviran</td>
+              <td><button class="btn secondary">Izmijeni</button></td>
+            </tr>
+          </table>
+          <h2>Forma — novi / izmjena</h2>
+          <div class="card">
+            <div class="row"><label>E-mail</label><input type="email" value="sekretarica@sczenica.ba"></div>
+            <div class="row"><label>Prikazno ime</label><input value="Tehnička sekretarica"></div>
+            <div class="row"><label>Nova lozinka</label><input type="password" placeholder="(ostavi prazno = bez izmjene)"></div>
+            <div class="row"><label>Aktivan</label><input type="checkbox" checked></div>
+            <p class="muted">Svi nalozi imaju puni pristup (nema uloga u v1.0).</p>
+            <div class="actions">
+              <button class="btn">Sačuvaj</button>
+              <button class="btn secondary">Promijeni moju lozinku…</button>
+              <button class="btn danger">Deaktiviraj</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

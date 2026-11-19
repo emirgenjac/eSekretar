@@ -128,6 +128,7 @@ Linkovi: F2 depends on F1 → F3 on F2 → … → F6 on F5.
 | --- | --- | --- | --- | --- |
 | Z-01 | Integracija modula, feature freeze, tag v0.9.0 (M3) | Emir | 19.12. | milestone |
 | Z-02 | Rezerva / odobreni Change Request-ovi | Emir | 19.12. | Should |
+| Z-05 | (Should) Zaboravljena lozinka: reset / privremena lozinka na e-mail sekretarice | Emir | 19.12. | FR-24, Should |
 | Z-03 | (Could) Audit log | Emir | 19.12. | FR-22, Could |
 | Z-04 | (Could) PDF kartica studenta | Emin | 19.12. | FR-23, Could |
 
