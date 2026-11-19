@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Backup</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Backup</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a class="active" href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Backup / restore</h1>
+          <div class="split" style="grid-template-columns:repeat(3,1fr);margin-bottom:12px">
+            <div class="card"><h2>Posljednji backup</h2><p class="stat" style="font-size:18px">18.11.2026. 08:00</p><p class="muted"><span class="badge ok">uspješno</span></p></div>
+            <div class="card"><h2>Sljedeći automatski</h2><p class="stat" style="font-size:18px">25.11.2026. 08:00</p><p class="muted">svakih 7 dana</p></div>
+            <div class="card"><h2>Excel backup</h2><p class="stat" style="font-size:18px">18.11.2026.</p><p class="muted">sheetovi aktivni + razduženi</p></div>
+          </div>
+          <table>
+            <tr><th>Fajl</th><th>Kreiran</th><th>Vrsta</th><th class="num">Veličina</th></tr>
+            <tr><td>esekretar_2026-11-18_0800.sql</td><td>18.11.2026. 08:00</td><td>automatski</td><td class="num">2,4 MB</td></tr>
+            <tr><td>esekretar_2026-11-11_0800.sql</td><td>11.11.2026. 08:00</td><td>automatski</td><td class="num">2,3 MB</td></tr>
+            <tr class="sel"><td>esekretar_2026-11-05_1432.sql</td><td>05.11.2026. 14:32</td><td>ručno (prije uvoza)</td><td class="num">2,1 MB</td></tr>
+          </table>
+          <div class="actions">
+            <button class="btn">Napravi backup sada</button>
+            <button class="btn secondary">Excel backup (.xlsx)</button>
+            <button class="btn secondary">Otvori folder</button>
+            <button class="btn danger">Vrati odabrani…</button>
+          </div>
+          <p class="note">FR-19: mysqldump (uključuje fotografije, NFR-08), u pozadini. Folder, interval i „upozori nakon N dana“ su u Postavkama (D-04) i koriste ih automatski backup i notifikacija (FR-18/FR-20).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

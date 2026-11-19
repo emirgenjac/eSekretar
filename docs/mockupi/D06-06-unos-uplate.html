@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Unos uplate</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Unos uplate</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a class="active" href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Uplate — matrica (KM)</h1>
+          <div class="toolbar">
+            <div class="tabs"><span class="on">Aktivni (61)</span><span>Razduženi (5)</span></div>
+            <label class="chk"><input type="checkbox"> samo dužnici</label>
+            <div class="spacer"></div>
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+            <button class="btn">Unos uplate</button>
+          </div>
+          <table class="matrix">
+            <tr><th class="num">R.br.</th><th>Prezime (ime roditelja) Ime</th><th class="num">Soba</th><th class="num mj">X</th><th class="num mj">XI</th><th class="num mj">XII</th><th class="num mj">I</th><th class="num mj">II</th><th class="num mj">III</th><th class="num mj">IV</th><th class="num mj">V</th><th class="num mj">VI</th><th class="num mj">VII</th><th class="num">Dug</th></tr>
+            <tr><td class="num">1</td><td>Hodžić (Senad) Amar</td><td class="num">1</td><td class="num">165,00</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">2</td><td>Mehić (Mirsad) Lejla</td><td class="num">21</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr class="sel"><td class="num">3</td><td>Kovačević (Edin) Tarik</td><td class="num">3</td><td class="num">165,00</td><td class="num due">0,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num red">165,00</td></tr>
+            <tr><td class="num">4</td><td>Begić (Nermin) Kenan</td><td class="num">4</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">5</td><td>Alić (Fikret) Selma</td><td class="num">24</td><td class="pre">—</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">6</td><td>Delić (Asim) Emin</td><td class="num">6</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">7</td><td>Softić (Suad) Faris</td><td class="num">7</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">8</td><td>Hadžić (Hasan) Hana</td><td class="num">20</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">9</td><td>Omerović (Zijad) Armin</td><td class="num">9</td><td class="num">165,00</td><td class="num">165,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num green">0,00</td></tr>
+            <tr><td class="num">10</td><td>Salihović (Kemal) Dino</td><td class="num">10</td><td class="num">165,00</td><td class="num due">0,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num red">165,00</td></tr>
+            <tr><td class="num">11</td><td>Ćatić (Mirsad) Lejla</td><td class="num">26</td><td class="num due">0,00</td><td class="num due">0,00</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="num red">330,00</td></tr>
+            <tr class="total"><td></td><td>Ukupno (11 od 61)</td><td></td><td class="num">1.485,00</td><td class="num">1.320,00</td><td class="num">165,00</td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num"></td><td class="num red">660,00</td></tr>
+          </table>
+          <p class="note">FR-12: mjeseci X–XII i I–VII (uključen maj), jedan iznos po mjesecu, bez rata. Sivo = prije zaduženja, crveno = dospjeli neplaćen mjesec. Dug = cijena AG × dospjeli mjeseci od zaduženja − uplate. Dvoklik na ćeliju = unos/izmjena. Isti raspored ide u „Pregled kao Excel“.</p>
+        </div>
+        <div class="modal-bg"></div>
+        <div class="modal" style="left:40px;top:30px;width:660px">
+          <div class="mtitle">Unos uplate</div>
+          <div class="mbody">
+            <div style="display:grid;grid-template-columns:1fr 250px;gap:14px">
+              <div>
+                <div class="row"><label style="width:110px">Student</label><select><option>Kovačević (Edin) Tarik — soba 3</option></select></div>
+                <div class="row"><label style="width:110px">Mjesec</label><select><option>XI 2026</option></select></div>
+                <div class="row"><label style="width:110px">Iznos (KM)</label><input value="165,00"></div>
+                <div class="row"><label style="width:110px">Datum uplate</label><input value="18.11.2026."></div>
+                <div class="row"><label style="width:110px">Br. priznanice</label><input value="PR-2026-0412"></div>
+                <p class="muted">Iznos predložen iz cijene AG. Jedna uplata po mjesecu (bez rata); ako uplata za mjesec postoji, nudi se izmjena.</p>
+              </div>
+              <div>
+                <h2 style="margin-top:0">Kartica dugovanja</h2>
+                <table>
+                  <tr><th>Mj.</th><th class="num">Obaveza</th><th class="num">Uplaćeno</th></tr>
+                  <tr><td>X</td><td class="num">165,00</td><td class="num">165,00</td></tr>
+                  <tr class="sel"><td>XI</td><td class="num">165,00</td><td class="num red">0,00</td></tr>
+                  <tr><td>XII</td><td class="num muted">165,00</td><td class="num muted">nije dospjelo</td></tr>
+                  <tr><td><b>Dug</b></td><td></td><td class="num red">165,00</td></tr>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="actions"><button class="btn secondary">Otkaži</button><button class="btn secondary">Snimi i novi</button><button class="btn">Snimi uplatu</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

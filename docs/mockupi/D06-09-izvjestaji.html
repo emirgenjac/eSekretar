@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Izvještaji</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Izvještaji</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a class="active" href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Izvještaji</h1>
+          <div class="chips"><span class="chip">Smješteni studenti</span><span class="chip">Sobe i popunjenost</span><span class="chip">Lista čekanja</span><span class="chip">Strani studenti</span><span class="chip">Uplate i dugovanja</span><span class="chip">Statistika</span><span class="chip on">Ministarstvo</span><span class="chip">Pregled kao Excel</span></div>
+          <div class="card">
+            <div class="row"><label>Akademska godina</label><select><option>2026/2027</option></select></div>
+            <div class="row"><label>Obuhvat</label><select><option>Smješteni (aktivni)</option><option>Svi primljeni</option></select></div>
+            <div class="actions" style="margin-top:4px">
+              <button class="btn">Prikaži</button>
+              <button class="btn secondary">Izvezi PDF</button>
+              <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+            </div>
+          </div>
+          <h2>Pregled — JU Studentski centar Zenica · AG 2026/2027 · 61 red</h2>
+          <div class="scroll-x">
+            <table class="matrix">
+              <tr><th>Ime</th><th>Prezime</th><th>Ime roditelja</th><th>Općina</th><th>Adresa</th><th>Fakultet</th><th>God./ciklus</th><th>Trajanje</th><th>God. upisa</th><th>Br. ugovora</th><th>JMBG</th></tr>
+              <tr><td>Amar</td><td>Hodžić</td><td>Senad</td><td>Visoko</td><td>A. Izetbegovića 12</td><td>Politehnički</td><td>III</td><td>4</td><td>2024</td><td>09-130-820-385/26</td><td>0101005170012</td></tr>
+              <tr><td>Lejla</td><td>Mehić</td><td>Mirsad</td><td>Zenica</td><td>K. Tvrtka 7</td><td>Filozofski</td><td>II</td><td>4</td><td>2025</td><td>09-130-820-386/26</td><td>1203006175031</td></tr>
+              <tr><td>Tarik</td><td>Kovačević</td><td>Edin</td><td>Kakanj</td><td>Rudara 3</td><td>Mašinski</td><td>I</td><td>4</td><td>2026</td><td>09-130-820-391/26</td><td>2507007170045</td></tr>
+              <tr><td>Ajla</td><td>Begić</td><td>Nermin</td><td>Tešanj</td><td>Titova 44</td><td>Medicinski</td><td>I</td><td>6</td><td>2026</td><td>09-130-820-402/26</td><td>0909007185020</td></tr>
+            </table>
+          </div>
+          <p class="note">FR-15: kolone tačno po SRS §8.5; zaglavlje ustanove iz Postavki (format = D-07). Svaki izvještaj nudi PDF (iText) i .xlsx (POI) preko FileChoosera; export radi u pozadini (NFR-04).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
