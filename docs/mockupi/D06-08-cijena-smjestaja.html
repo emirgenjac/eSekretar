@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Akademske godine / cijena</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Akademske godine / cijena</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a class="active" href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Akademske godine i cijena smještaja</h1>
+          <div class="toolbar">
+            <button class="btn">Nova akademska godina</button>
+            <button class="btn secondary">Postavi kao aktivnu</button>
+            <button class="btn secondary">Prenos studenata…</button>
+          </div>
+          <table>
+            <tr><th>AG</th><th>Period</th><th class="num">Cijena / mj.</th><th>Status</th><th class="num">Prijava</th></tr>
+            <tr><td>2024/2025</td><td>01.10.2024. – 15.07.2025.</td><td class="num">150,00 KM</td><td><span class="badge off">zatvorena</span></td><td class="num">71</td></tr>
+            <tr><td>2025/2026</td><td>01.10.2025. – 15.07.2026.</td><td class="num">150,00 KM</td><td><span class="badge off">zatvorena</span></td><td class="num">74</td></tr>
+            <tr><td><b>2026/2027</b></td><td>01.10.2026. – 15.07.2027.</td><td class="num"><b>165,00 KM</b></td><td><span class="badge ok">aktivna</span></td><td class="num">69</td></tr>
+            <tr class="sel"><td>2027/2028</td><td>01.10.2027. – 15.07.2028.</td><td class="num">165,00 KM</td><td><span class="badge warn">u pripremi</span></td><td class="num">0</td></tr>
+          </table>
+          <h2>Cijena smještaja — AG 2027/2028</h2>
+          <div class="card">
+            <div class="row"><label>Cijena (KM / mjesec)</label><input value="165,00"></div>
+            <div class="row"><label>Odluka UO broj</label><input value="01-02-115/27"></div>
+            <div class="row"><label>Datum odluke</label><input value="15.06.2027."></div>
+            <div class="row"><label>Važi od</label><span class="static muted">01.10.2027. (početak AG)</span></div>
+            <div class="actions"><button class="btn">Sačuvaj cijenu</button></div>
+          </div>
+          <p class="note">FR-04: cijena se unosi prije početka AG (odluka UO prije konkursa). Za aktivnu i zatvorenu AG izmjena nije dozvoljena, pa stari obračuni ostaju po staroj cijeni (150 → 165). Seed: 165 KM.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

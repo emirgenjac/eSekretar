@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Uplate</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Uplate</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a class="active" href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Uplate — dugovanja</h1>
+          <div class="toolbar">
+            <select><option>Stanje na: 18.11.2026.</option></select>
+            <label class="chk"><input type="checkbox" checked> samo aktivni</label>
+            <div class="spacer"></div>
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+          </div>
+          <div class="split" style="grid-template-columns:repeat(3,1fr);margin-bottom:12px">
+            <div class="card"><h2>Dužnika</h2><p class="stat">5</p></div>
+            <div class="card"><h2>Ukupan dug</h2><p class="stat">1.155,00</p><p class="muted">KM</p></div>
+            <div class="card"><h2>Naplaćeno u XI</h2><p class="stat">9.405,00</p><p class="muted">KM</p></div>
+          </div>
+          <table>
+            <tr><th>Student</th><th class="num">Soba</th><th>Neplaćeno</th><th class="num">Dug (KM)</th><th>Status</th><th></th></tr>
+            <tr><td>Ćatić (Mirsad) Lejla</td><td class="num">26</td><td>X, XI</td><td class="num red">330,00</td><td><span class="badge dug">2+ mjeseca</span></td><td><button class="btn secondary sm">Kartica</button> <button class="btn sm">Unesi uplatu</button></td></tr>
+            <tr><td>Selimović (Edin) Dalila</td><td class="num">25</td><td>X, XI</td><td class="num red">330,00</td><td><span class="badge dug">2+ mjeseca</span></td><td><button class="btn secondary sm">Kartica</button> <button class="btn sm">Unesi uplatu</button></td></tr>
+            <tr><td>Kovačević (Edin) Tarik</td><td class="num">3</td><td>XI</td><td class="num red">165,00</td><td><span class="badge warn">1 mjesec</span></td><td><button class="btn secondary sm">Kartica</button> <button class="btn sm">Unesi uplatu</button></td></tr>
+            <tr><td>Salihović (Kemal) Dino</td><td class="num">10</td><td>XI</td><td class="num red">165,00</td><td><span class="badge warn">1 mjesec</span></td><td><button class="btn secondary sm">Kartica</button> <button class="btn sm">Unesi uplatu</button></td></tr>
+            <tr><td>Halilović (Kemal) Armin</td><td class="num">11</td><td>XI</td><td class="num red">165,00</td><td><span class="badge warn">1 mjesec</span></td><td><button class="btn secondary sm">Kartica</button> <button class="btn sm">Unesi uplatu</button></td></tr>
+          </table>
+          <p class="note">FR-12/FR-18: dug = obaveze − uplate (samo dospjeli mjeseci). Notifikacija „neplaćen prethodni mjesec“ (🔔) vodi na ovaj ekran.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

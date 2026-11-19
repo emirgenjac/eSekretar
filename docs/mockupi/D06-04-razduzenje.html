@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Razduženje</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Razduženje</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a class="active" href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <div class="toolbar">
+            <button class="btn secondary">← Pregled soba</button>
+            <button class="btn secondary">◀ 18</button>
+            <button class="btn secondary">20 ▶</button>
+            <div class="spacer"></div>
+            <button class="btn secondary">Uredi sobu</button>
+            <button class="btn">Zaduži studenta</button>
+          </div>
+          <h1>Soba 19</h1>
+          <div class="grid2">
+            <div class="card">
+              <h2>Podaci sobe</h2>
+              <div class="row"><label style="width:90px">Sprat</label><span class="static">1. sprat</span></div>
+              <div class="row"><label style="width:90px">Tip</label><span class="static"><span class="badge m">muška</span></span></div>
+              <div class="row"><label style="width:90px">Kapacitet</label><span class="static">3</span></div>
+              <div class="row"><label style="width:90px">Zauzeto</label><span class="static"><b>2</b> / 3 · <span class="green">1 slobodno</span></span></div>
+              <div class="row"><label style="width:90px">Status</label><span class="static"><span class="badge ok">aktivna</span></span></div>
+            </div>
+            <div>
+              <h2 style="margin-top:0">Trenutni stanari (AG 2026/2027)</h2>
+              <table>
+                <tr><th>Student</th><th>Zadužen</th><th>Uplate</th><th></th></tr>
+                <tr class="sel"><td>Hodžić (Senad) Amar</td><td>05.10.2026.</td><td><span class="badge ok">uredno</span></td>
+                  <td><button class="btn secondary sm">Premjesti</button> <button class="btn danger sm">Razduži</button></td></tr>
+                <tr><td>Mehić (Edin) Tarik</td><td>01.10.2026.</td><td><span class="badge dug">dug 165</span></td>
+                  <td><button class="btn secondary sm">Premjesti</button> <button class="btn danger sm">Razduži</button></td></tr>
+                <tr><td colspan="4" class="muted">Slobodno mjesto — Zaduži studenta…</td></tr>
+              </table>
+              <h2>Historija (razduženi)</h2>
+              <table>
+                <tr><th>Student</th><th>Zadužen</th><th>Razdužen</th><th>Razlog</th></tr>
+                <tr><td>Kovačević (Asim) Haris</td><td>01.10.2025.</td><td>15.07.2026.</td><td>kraj AG</td></tr>
+                <tr><td>Begić (Suad) Dino</td><td>01.10.2025.</td><td>12.02.2026.</td><td>premješten → 12</td></tr>
+              </table>
+            </div>
+          </div>
+          <p class="note">FR-09: Premjesti = jedna transakcija (razduženje stare + zaduženje nove sobe). Razduženi ostaju u historiji, ne u aktivnoj listi.</p>
+        </div>
+        <div class="modal-bg"></div>
+        <div class="modal" style="left:90px;top:60px;width:520px">
+          <div class="mtitle">Razduženje — Mehić (Edin) Tarik, soba 19</div>
+          <div class="mbody">
+            <div class="row"><label>Datum razduženja</label><input class="invalid" value="20.09.2026."></div>
+            <div class="err" style="margin-left:160px">Datum razduženja ne može biti prije zaduženja (01.10.2026.).</div>
+            <div class="row"><label>Razlog</label><select><option>Napustio dom</option><option>Kraj AG</option><option>Premještaj</option></select></div>
+            <div class="note" style="margin-top:4px">Student ima dug <b>165,00 KM</b> (XI). Razduženje je i dalje moguće; dug ostaje na kartici.</div>
+          </div>
+          <div class="actions"><button class="btn secondary">Otkaži</button><button class="btn danger">Razduži</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

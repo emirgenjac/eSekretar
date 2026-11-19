@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Sobe</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Sobe</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a class="active" href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Sobe — pregled po spratovima</h1>
+          <div class="toolbar">
+            <select><option>Sprat: svi</option></select>
+            <select><option>Tip: svi</option><option>muška</option><option>ženska</option></select>
+            <label class="chk"><input type="checkbox"> samo sa slobodnim mjestima</label>
+            <div class="spacer"></div>
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+            <button class="btn">Nova soba</button>
+          </div>
+          <div class="card summary">
+            <span>Mjesta <b>74</b></span><span>Zauzeto <b>61</b></span>
+            <span>Slobodno <b class="green">13</b> <span class="muted">(M 9 · Ž 4)</span></span>
+            <span>Popunjenost <b>82 %</b></span>
+          </div>
+          <div class="floor">
+            <h2>Prizemlje · sobe 1–8</h2>
+            <div class="rooms">
+              <div class="room"><div class="top">1<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">2<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">3<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i></div><span class="muted">2/2</span></div>
+              <div class="room free"><div class="top">4<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class=""></i></div><span class="muted">2/3</span></div>
+              <div class="room"><div class="top">5<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">6<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i></div><span class="muted">2/2</span></div>
+              <div class="room free"><div class="top">7<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class=""></i><i class=""></i></div><span class="muted">1/3</span></div>
+              <div class="room free"><div class="top">8<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class=""></i></div><span class="muted">2/3</span></div>
+            </div>
+          </div>
+          <div class="floor">
+            <h2>1. sprat · sobe 10–19</h2>
+            <div class="rooms">
+              <div class="room"><div class="top">10<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">11<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room free"><div class="top">12<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class=""></i></div><span class="muted">1/2</span></div>
+              <div class="room"><div class="top">13<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">14<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room free"><div class="top">15<span class="badge m">M</span></div><div class="dots"><i class=""></i><i class=""></i></div><span class="muted">0/2</span></div>
+              <div class="room free"><div class="top">16<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class=""></i></div><span class="muted">2/3</span></div>
+              <div class="room"><div class="top">17<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class="m"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">18<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i></div><span class="muted">2/2</span></div>
+              <div class="room free sel"><div class="top">19<span class="badge m">M</span></div><div class="dots"><i class="m"></i><i class="m"></i><i class=""></i></div><span class="muted">2/3</span></div>
+            </div>
+          </div>
+          <div class="floor">
+            <h2>2. sprat · sobe 20–29</h2>
+            <div class="rooms">
+              <div class="room free"><div class="top">20<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class=""></i></div><span class="muted">2/3</span></div>
+              <div class="room"><div class="top">21<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i></div><span class="muted">2/2</span></div>
+              <div class="room"><div class="top">22<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class="z"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">23<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class="z"></i></div><span class="muted">3/3</span></div>
+              <div class="room free"><div class="top">24<span class="badge z">Ž</span></div><div class="dots"><i class=""></i><i class=""></i></div><span class="muted">0/2</span></div>
+              <div class="room"><div class="top">25<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class="z"></i></div><span class="muted">3/3</span></div>
+              <div class="room"><div class="top">26<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class="z"></i></div><span class="muted">3/3</span></div>
+              <div class="room off"><div class="top">27<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i></div><span class="muted">van upotrebe</span></div>
+              <div class="room free"><div class="top">28<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class=""></i></div><span class="muted">2/3</span></div>
+              <div class="room"><div class="top">29<span class="badge z">Ž</span></div><div class="dots"><i class="z"></i><i class="z"></i><i class="z"></i></div><span class="muted">3/3</span></div>
+            </div>
+          </div>
+          <p class="note">FR-07/FR-08: brojke = aktivna zaduženja (datum_razduzenja IS NULL). Zeleno = ima slobodnih mjesta, sivo = soba van upotrebe. Klik na sobu otvara detalje; desni klik: Zaduži / Uredi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
