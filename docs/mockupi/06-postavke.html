@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Postavke</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Postavke</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Korisnici</a>
+        <a class="active" href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <select><option>2026/2027</option></select>
+          <div class="spacer"></div>
+          <button class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Postavke</h1>
+          <div class="card">
+            <h2>Ustanova</h2>
+            <div class="row"><label>Naziv</label><input value="JU Studentski centar Zenica"></div>
+            <div class="row"><label>Adresa</label><input value="Crkvice 50, Zenica"></div>
+
+            <h2>Backup</h2>
+            <div class="row"><label>Putanja mysqldump</label><input value="C:\Program Files\MySQL\...\mysqldump.exe"></div>
+            <div class="row"><label>Folder backup-a</label><input value="D:\eSekretar\backup"></div>
+            <div class="row"><label>Interval (dani)</label><input value="7" style="max-width:80px;"></div>
+
+            <h2>Tema</h2>
+            <div class="row">
+              <label>Izgled</label>
+              <label style="width:auto;"><input type="radio" name="t" checked> Svijetla</label>
+              <label style="width:auto;"><input type="radio" name="t"> Tamna</label>
+            </div>
+            <p class="muted">Tema se pamti po korisniku, bez restarta aplikacije.</p>
+
+            <div class="actions">
+              <button class="btn">Sačuvaj</button>
+              <button class="btn secondary">Otkaži</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -30,6 +30,7 @@ Aplikacija centralizuje lične podatke, prijave po akademskoj godini, sobe, smje
 
 - **Must** — obavezno do isporuke v1.0.0  
 - **Should** — po želji / budući Change Request  
+- **Should** — ako stigne (FR-24 zaboravljena lozinka / mail)
 - **Could** — ako ostane vremena (FR-22, FR-23)
 
 ---
@@ -40,7 +41,7 @@ Aplikacija centralizuje lične podatke, prijave po akademskoj godini, sobe, smje
 
 | ID | Opis |
 | --- | --- |
-| FR-01 | Prijava i odjava; lozinke hashirane BCrypt-om |
+| FR-01 | Prijava e-mailom i lozinkom; lozinke hashirane BCrypt-om |
 | FR-02 | Uloge ADMIN i SEKRETAR; meni i akcije zavise od uloge |
 | FR-03 | Upravljanje korisnicima (ADMIN) i promjena vlastite lozinke |
 | FR-04 | Akademske godine (aktivna godina, period smještaja) i cijena smještaja: trenutno 165 KM, mijenja se od izabranog datuma |
@@ -61,6 +62,12 @@ Aplikacija centralizuje lične podatke, prijave po akademskoj godini, sobe, smje
 | FR-19 | Backup i restore baze |
 | FR-20 | Podešavanja i tema (svijetla i tamna) |
 | FR-21 | Uvoz postojećeg Excel-a (sve kolone, uključujući uplate po mjesecima) |
+
+### Should
+
+| ID | Opis |
+| --- | --- |
+| FR-24 | Zaboravljena lozinka: reset / privremena lozinka na e-mail sekretarice |
 
 ### Could
 

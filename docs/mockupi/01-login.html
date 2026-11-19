@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Login</title>
+  <link rel="stylesheet" href="stil.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar</span>
+      <div class="win-controls">
+        <button type="button" aria-label="Minimiziraj">─</button>
+        <button type="button" aria-label="Maksimiziraj">☐</button>
+        <button type="button" class="close" aria-label="Zatvori">✕</button>
+      </div>
+    </div>
+    <div class="login-wrap">
+      <div class="login-box">
+        <h1>eSekretar</h1>
+        <p class="muted" style="text-align:center;margin-bottom:16px;">JU Studentski centar Zenica</p>
+        <div class="err">Pogrešan e-mail ili lozinka.</div>
+        <div class="field">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" value="sekretarica@sczenica.ba">
+        </div>
+        <div class="field">
+          <label for="lozinka">Lozinka</label>
+          <input id="lozinka" type="password" value="••••••••">
+        </div>
+        <div class="actions" style="justify-content:stretch;">
+          <button class="btn" style="width:100%;">Prijava</button>
+        </div>
+        <p class="muted" style="margin-top:12px;text-align:center;">
+          <a href="#" style="color:#0369a1;text-decoration:none;">Zaboravljena lozinka?</a>
+          <span style="color:#94a3b8;"> (Should FR-24 — mail sekretarici)</span>
+        </p>
+        <p class="muted" style="margin-top:8px;text-align:center;">Pristup samo prijavljenim korisnicima.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
