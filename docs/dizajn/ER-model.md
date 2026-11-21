@@ -349,7 +349,7 @@ Kolone `prijava_id`, `student_id`, `akademska_godina_id` i `akademska_godina` su
 - 12 kantona (10 FBiH + Republika Srpska + Brčko distrikt).
 - 8 fakulteta iz SRS §8.4.
 - AG `2026/2027` (1.10.2026 – 15.7.2027), aktivna, cijena **165 KM**.
-- Sobe: **privremeni** raspored (30 soba, 3 sprata) dok ne stigne stvarni spisak soba doma.
+- Sobe: mock raspored od 38 soba na 4 nivoa (prizemlje + 3 sprata, sprat 0 = prizemlje), 101 mjesto u upotrebi; prizemlje i 1. sprat muške, 2. i 3. sprat ženske; soba 27 van upotrebe. Brojevi i kapaciteti prate mockup D-06. Stvarne sobe se unose ili ispravljaju na ekranu Sobe (N-02).
 - Postavke: naziv i adresa ustanove, backup putanje (prazno), interval backupa 7 dana, upozorenje za backup 7 dana, SMTP (host, port, korisnik, pošiljalac, STARTTLS), e-mail sekretarice za reset i trajanje privremene lozinke (24 h). **SMTP lozinka nije u bazi**, nego u `config.properties` van Gita (NFR-02, D-01).
 
 Demo studenti nisu u V2: mock seed ide uz F3 (SRS §2.5), da ne završi u produkcijskoj bazi.

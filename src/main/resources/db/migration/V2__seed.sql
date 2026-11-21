@@ -57,16 +57,27 @@ CROSS JOIN korisnik k
 WHERE ag.naziv = '2026/2027' AND k.email = 'admin@sczenica.ba';
 
 -- ---------------------------------------------------------------------
--- Sobe - PRIVREMENI raspored dok ne stigne stvarni spisak soba doma
--- (broj, sprat, kapacitet, tip). Zamijeniti prije merge-a ESK-14.
+-- Sobe - mock raspored: 4 nivoa (prizemlje + 3 sprata), brojevi i
+-- kapaciteti kao na mockupu D-06 (pregled soba). Stvarne sobe se
+-- unose ili ispravljaju na ekranu Sobe (N-02).
+-- Sprat 0 = prizemlje.
 -- ---------------------------------------------------------------------
-INSERT INTO soba (broj, sprat, kapacitet, tip) VALUES
-    ('1', 1, 3, 'MUSKA'),  ('2', 1, 3, 'MUSKA'),  ('3', 1, 3, 'MUSKA'),  ('4', 1, 3, 'MUSKA'),  ('5', 1, 3, 'MUSKA'),
-    ('6', 1, 3, 'MUSKA'),  ('7', 1, 3, 'MUSKA'),  ('8', 1, 3, 'MUSKA'),  ('9', 1, 3, 'MUSKA'),  ('10', 1, 3, 'MUSKA'),
-    ('11', 2, 3, 'MUSKA'), ('12', 2, 3, 'MUSKA'), ('13', 2, 3, 'MUSKA'), ('14', 2, 3, 'MUSKA'), ('15', 2, 3, 'MUSKA'),
-    ('16', 2, 3, 'MUSKA'), ('17', 2, 3, 'MUSKA'), ('18', 2, 3, 'MUSKA'), ('19', 2, 3, 'MUSKA'), ('20', 2, 3, 'MUSKA'),
-    ('21', 3, 3, 'ZENSKA'), ('22', 3, 3, 'ZENSKA'), ('23', 3, 3, 'ZENSKA'), ('24', 3, 3, 'ZENSKA'), ('25', 3, 3, 'ZENSKA'),
-    ('26', 3, 3, 'ZENSKA'), ('27', 3, 3, 'ZENSKA'), ('28', 3, 3, 'ZENSKA'), ('29', 3, 3, 'ZENSKA'), ('30', 3, 3, 'ZENSKA');
+INSERT INTO soba (broj, sprat, kapacitet, tip, status) VALUES
+    -- prizemlje, muške
+    ('1', 0, 3, 'MUSKA', 'AKTIVNA'),  ('2', 0, 3, 'MUSKA', 'AKTIVNA'),  ('3', 0, 2, 'MUSKA', 'AKTIVNA'),  ('4', 0, 3, 'MUSKA', 'AKTIVNA'),
+    ('5', 0, 3, 'MUSKA', 'AKTIVNA'),  ('6', 0, 2, 'MUSKA', 'AKTIVNA'),  ('7', 0, 3, 'MUSKA', 'AKTIVNA'),  ('8', 0, 3, 'MUSKA', 'AKTIVNA'),
+    -- 1. sprat, muške
+    ('10', 1, 3, 'MUSKA', 'AKTIVNA'), ('11', 1, 3, 'MUSKA', 'AKTIVNA'), ('12', 1, 2, 'MUSKA', 'AKTIVNA'), ('13', 1, 3, 'MUSKA', 'AKTIVNA'),
+    ('14', 1, 3, 'MUSKA', 'AKTIVNA'), ('15', 1, 2, 'MUSKA', 'AKTIVNA'), ('16', 1, 3, 'MUSKA', 'AKTIVNA'), ('17', 1, 3, 'MUSKA', 'AKTIVNA'),
+    ('18', 1, 2, 'MUSKA', 'AKTIVNA'), ('19', 1, 3, 'MUSKA', 'AKTIVNA'),
+    -- 2. sprat, ženske
+    ('20', 2, 3, 'ZENSKA', 'AKTIVNA'), ('21', 2, 2, 'ZENSKA', 'AKTIVNA'), ('22', 2, 3, 'ZENSKA', 'AKTIVNA'), ('23', 2, 3, 'ZENSKA', 'AKTIVNA'),
+    ('24', 2, 2, 'ZENSKA', 'AKTIVNA'), ('25', 2, 3, 'ZENSKA', 'AKTIVNA'), ('26', 2, 3, 'ZENSKA', 'AKTIVNA'), ('27', 2, 3, 'ZENSKA', 'NEAKTIVNA'),
+    ('28', 2, 3, 'ZENSKA', 'AKTIVNA'), ('29', 2, 3, 'ZENSKA', 'AKTIVNA'),
+    -- 3. sprat, ženske
+    ('30', 3, 3, 'ZENSKA', 'AKTIVNA'), ('31', 3, 3, 'ZENSKA', 'AKTIVNA'), ('32', 3, 2, 'ZENSKA', 'AKTIVNA'), ('33', 3, 3, 'ZENSKA', 'AKTIVNA'),
+    ('34', 3, 3, 'ZENSKA', 'AKTIVNA'), ('35', 3, 2, 'ZENSKA', 'AKTIVNA'), ('36', 3, 3, 'ZENSKA', 'AKTIVNA'), ('37', 3, 3, 'ZENSKA', 'AKTIVNA'),
+    ('38', 3, 2, 'ZENSKA', 'AKTIVNA'), ('39', 3, 3, 'ZENSKA', 'AKTIVNA');
 
 -- ---------------------------------------------------------------------
 -- Postavke (FR-20, FR-24). Putanje i SMTP postavlja korisnik u
