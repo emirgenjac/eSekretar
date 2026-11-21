@@ -1,21 +1,3 @@
--- =====================================================================
--- eSekretar - V1 inicijalna šema baze (MySQL 8)
--- ESK-14 / D-02
---
--- Konvencije:
---   * imena tabela i kolona: snake_case, jednina, bosanski bez dijakritika
---   * PK: id BIGINT AUTO_INCREMENT
---   * novac: DECIMAL(8,2) (KM)
---   * svi tekstovi: utf8mb4, hrvatska/bosanska kolacija (č, ć, dž, đ, š, ž)
---   * pravila koja zahtijevaju više redova (kapacitet sobe, prelazi
---     statusa) provjerava servisni sloj u transakciji
--- =====================================================================
-
--- ---------------------------------------------------------------------
--- Korisnici aplikacije (FR-01..FR-03, FR-24). Prijava e-mailom i
--- lozinkom (SRS v1.8). Bez uloga: svi nalozi imaju puni pristup
--- (SRS §2.2, §3).
--- ---------------------------------------------------------------------
 CREATE TABLE korisnik (
     id                        BIGINT       NOT NULL AUTO_INCREMENT,
     email                     VARCHAR(150) NOT NULL COMMENT 'identifikator za prijavu',
@@ -36,11 +18,6 @@ CREATE TABLE korisnik (
     CONSTRAINT ck_korisnik_neuspjesne CHECK (neuspjesne_prijave >= 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Akademska godina (FR-04). Tačno jedna može biti aktivna:
--- aktivna_kljuc je 1 za aktivnu i NULL za ostale, a UNIQUE dozvoljava
--- više NULL vrijednosti.
--- ---------------------------------------------------------------------
 CREATE TABLE akademska_godina (
     id              BIGINT      NOT NULL AUTO_INCREMENT,
     naziv           VARCHAR(9)  NOT NULL COMMENT 'npr. 2026/2027',
@@ -55,11 +32,6 @@ CREATE TABLE akademska_godina (
     CONSTRAINT ck_akademska_godina_period CHECK (datum_do > datum_od)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Cijena smještaja po akademskoj godini (FR-04, SRS §8.3 pravilo 1).
--- Jedna cijena po AG, vrijedi od početka te AG. Historija = cijene
--- prethodnih godina (npr. 150 -> 165).
--- ---------------------------------------------------------------------
 CREATE TABLE cijena_smjestaja (
     id                    BIGINT        NOT NULL AUTO_INCREMENT,
     akademska_godina_id   BIGINT        NOT NULL,
@@ -78,9 +50,6 @@ CREATE TABLE cijena_smjestaja (
     CONSTRAINT ck_cijena_smjestaja_iznos CHECK (iznos > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Šifarnici
--- ---------------------------------------------------------------------
 CREATE TABLE kanton (
     id        BIGINT       NOT NULL AUTO_INCREMENT,
     sifra     VARCHAR(10)  NOT NULL COMMENT 'npr. ZDK',
@@ -91,8 +60,6 @@ CREATE TABLE kanton (
     UNIQUE KEY uk_kanton_naziv (naziv)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- Fakultet je samo lista prijedloga za editable ComboBox (FR-06).
--- Prijava čuva naziv fakulteta kao tekst, pa je slobodan unos moguć.
 CREATE TABLE fakultet (
     id         BIGINT       NOT NULL AUTO_INCREMENT,
     naziv      VARCHAR(150) NOT NULL,
@@ -102,9 +69,6 @@ CREATE TABLE fakultet (
     UNIQUE KEY uk_fakultet_naziv (naziv)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Student (FR-05, FR-11). Domaći student ima JMBG, strani pasoš.
--- ---------------------------------------------------------------------
 CREATE TABLE student (
     id                BIGINT        NOT NULL AUTO_INCREMENT,
     ime               VARCHAR(100)  NOT NULL,
@@ -140,7 +104,6 @@ CREATE TABLE student (
     CONSTRAINT ck_student_boravak CHECK (boravak_do IS NULL OR boravak_od IS NULL OR boravak_do >= boravak_od)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- Više brojeva telefona roditelja po studentu (FR-05).
 CREATE TABLE student_telefon_roditelja (
     id          BIGINT       NOT NULL AUTO_INCREMENT,
     student_id  BIGINT       NOT NULL,
@@ -153,8 +116,6 @@ CREATE TABLE student_telefon_roditelja (
         REFERENCES student (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- Fotografija u bazi (NFR-08), odvojeno od studenta da liste ne
--- učitavaju BLOB. Unos naknadno je dozvoljen (red ne mora postojati).
 CREATE TABLE student_fotografija (
     student_id   BIGINT       NOT NULL,
     slika        MEDIUMBLOB   NOT NULL COMMENT 'do 16 MB; aplikacija skalira prije snimanja',
@@ -165,11 +126,6 @@ CREATE TABLE student_fotografija (
         REFERENCES student (id) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Prijava studenta za akademsku godinu (FR-06, FR-10, FR-13).
--- Lista čekanja nije posebna tabela: to su prijave sa statusom
--- LISTA_CEKANJA, rang = bodovi DESC, datum_prijave ASC.
--- ---------------------------------------------------------------------
 CREATE TABLE prijava (
     id                      BIGINT        NOT NULL AUTO_INCREMENT,
     student_id              BIGINT        NOT NULL,
@@ -208,7 +164,6 @@ CREATE TABLE prijava (
     CONSTRAINT ck_prijava_godina_upisa CHECK (godina_upisa IS NULL OR godina_upisa BETWEEN 1990 AND 2100)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- Historija statusa prijave (FR-10).
 CREATE TABLE prijava_status_historija (
     id            BIGINT        NOT NULL AUTO_INCREMENT,
     prijava_id    BIGINT        NOT NULL,
@@ -225,9 +180,6 @@ CREATE TABLE prijava_status_historija (
         REFERENCES korisnik (id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Sobe (FR-07, FR-08)
--- ---------------------------------------------------------------------
 CREATE TABLE soba (
     id         BIGINT       NOT NULL AUTO_INCREMENT,
     broj       VARCHAR(10)  NOT NULL COMMENT 'npr. 19',
@@ -245,13 +197,6 @@ CREATE TABLE soba (
     CONSTRAINT ck_soba_sprat CHECK (sprat BETWEEN -1 AND 20)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Smještaj = zaduženje sobe za prijavu (FR-09). Premještaj zatvara
--- stari red (datum_razduzenja, razlog PREMJESTAJ) i otvara novi u
--- istoj transakciji. Aktivan = datum_razduzenja IS NULL; najviše jedan
--- aktivan red po prijavi (uk_smjestaj_aktivan). Kapacitet sobe
--- provjerava servis (SELECT ... FOR UPDATE na sobi).
--- ---------------------------------------------------------------------
 CREATE TABLE smjestaj (
     id                  BIGINT       NOT NULL AUTO_INCREMENT,
     prijava_id          BIGINT       NOT NULL,
@@ -278,11 +223,6 @@ CREATE TABLE smjestaj (
     CONSTRAINT ck_smjestaj_razlog CHECK ((datum_razduzenja IS NULL) = (razlog_razduzenja IS NULL))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Uplata (FR-12). Bez rata: jedan iznos po mjesecu po prijavi.
--- Mjesec 10..12 pripada prvoj, 1..7 drugoj kalendarskoj godini AG.
--- Avgust i septembar nisu obračunski mjeseci.
--- ---------------------------------------------------------------------
 CREATE TABLE uplata (
     id            BIGINT        NOT NULL AUTO_INCREMENT,
     prijava_id    BIGINT        NOT NULL,
@@ -304,9 +244,6 @@ CREATE TABLE uplata (
     CONSTRAINT ck_uplata_iznos CHECK (iznos > 0)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Postavke (FR-20), ključ-vrijednost. Tema je po korisniku (korisnik.tema).
--- ---------------------------------------------------------------------
 CREATE TABLE postavka (
     kljuc        VARCHAR(100)  NOT NULL,
     vrijednost   VARCHAR(1000) NULL,
@@ -315,9 +252,6 @@ CREATE TABLE postavka (
     PRIMARY KEY (kljuc)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Notifikacije (FR-18)
--- ---------------------------------------------------------------------
 CREATE TABLE notifikacija (
     id              BIGINT        NOT NULL AUTO_INCREMENT,
     tip             VARCHAR(50)   NOT NULL COMMENT 'npr. NEPLACEN_MJESEC, BACKUP_ZASTARIO',
@@ -332,10 +266,6 @@ CREATE TABLE notifikacija (
     KEY ix_notifikacija_tip_referenca (tip, referenca_tip, referenca_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Šabloni custom upita (FR-16). Definicija je JSON nad whitelistom
--- kolona pogleda v_student_pregled (docs/dizajn/ER-model.md §6).
--- ---------------------------------------------------------------------
 CREATE TABLE upit_sablon (
     id           BIGINT        NOT NULL AUTO_INCREMENT,
     naziv        VARCHAR(150)  NOT NULL,
@@ -350,9 +280,6 @@ CREATE TABLE upit_sablon (
         REFERENCES korisnik (id) ON DELETE SET NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hr_0900_ai_ci;
 
--- ---------------------------------------------------------------------
--- Evidencija backup-a (FR-19; notifikacija "backup stariji od N dana")
--- ---------------------------------------------------------------------
 CREATE TABLE backup_zapis (
     id              BIGINT        NOT NULL AUTO_INCREMENT,
     tip             ENUM('RUCNI','AUTOMATSKI','RESTORE') NOT NULL,
