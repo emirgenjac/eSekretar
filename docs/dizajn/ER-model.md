@@ -1,13 +1,5 @@
 # ER model i SQL šema (D-02)
 
-| | |
-| --- | --- |
-| **YouTrack** | ESK-14 (D-02) |
-| **Faza** | F2 Dizajn |
-| **Autor** | Adnan Jašarević |
-| **Baza** | MySQL 8, Flyway |
-| **Ulaz** | SRS v1.8 (§6 FR, §8 podaci i mapiranje), arhitektura D-01 (`docs/arhitektura.pdf`), mockupi D-04 (`docs/mockupi/`) |
-
 Fajlovi:
 
 | Fajl | Sadržaj |
@@ -17,8 +9,6 @@ Fajlovi:
 | [`src/main/resources/db/migration/R__v_student_pregled.sql`](../../src/main/resources/db/migration/R__v_student_pregled.sql) | Pogledi `v_obracun_prijave` i `v_student_pregled` (repeatable migracija) |
 | [`docs/dijagrami/er-dijagram.png`](../dijagrami/er-dijagram.png) | ER dijagram domene (studenti, smještaj, uplate) |
 | [`docs/dijagrami/er-dijagram-sistem.png`](../dijagrami/er-dijagram-sistem.png) | ER dijagram sistemskih tabela (korisnici, postavke, notifikacije, šabloni, backup) |
-
-Migracije su u standardnom Flyway folderu (`classpath:db/migration`), pa ih E-01 kostur preuzima bez kopiranja.
 
 ---
 
@@ -31,7 +21,7 @@ Sistemske tabele:
 ![ER dijagram sistemskih tabela](../dijagrami/er-dijagram-sistem.png)
 
 <details>
-<summary>Mermaid izvor (GitHub ga prikazuje direktno)</summary>
+<summary>Mermaid izvor</summary>
 
 ```mermaid
 erDiagram
@@ -230,59 +220,47 @@ Audit log (FR-22, Could) nije u V1; dodaje se novom migracijom ako Z-03 krene.
 
 ## 3. Ključne odluke modela
 
-1. **Prijava je centralna tabela godine.** Smještaj i uplate vise na `prijava`, ne na `student`. Tako su podaci jedne AG odvojeni, a prenos (FR-13) pravi novu prijavu i počinje smještaj/uplate od nule.
-2. **Lista čekanja nije posebna tabela.** To su prijave sa statusom `LISTA_CEKANJA`; rang = `bodovi DESC, datum_prijave ASC` (M-03). Historija ide u `prijava_status_historija`.
-3. **Statusi prijave:** `PRIJAVLJEN`, `LISTA_CEKANJA`, `PRIMLJEN`, `ODBIJEN`, `ISELJEN` (isti kao dijagram stanja u D-03). Prelaze provjerava servis.
-4. **Fakultet = tekst u prijavi.** Tabela `fakultet` služi samo za prijedloge u ComboBoxu, pa slobodan unos ne traži FK ni poseban red.
-5. **Kanton = šifarnik (FK), općina = tekst** (SRS §8.3).
-6. **Domaći ili strani student:** mora postojati JMBG ili broj pasoša (`ck_student_identifikacija`). JMBG je jedinstven i ima tačno 13 cifara.
-7. **Jedna aktivna AG i jedan aktivan smještaj po prijavi** osigurava baza (UNIQUE nad generisanom kolonom koja je `NULL` za neaktivne redove).
-8. **Premještaj** = u jednoj transakciji zatvoriti stari red (`datum_razduzenja`, razlog `PREMJESTAJ`) i otvoriti novi. Historija smještaja ostaje kompletna.
-9. **Kapacitet sobe** provjerava `SmjestajService` u transakciji (`SELECT ... FOR UPDATE` na sobu, pa broj aktivnih zaduženja < kapacitet). To nije moguće izraziti CHECK ograničenjem.
-10. **Bez rata:** `UNIQUE (prijava_id, mjesec)` u `uplata`. Mjeseci 8 i 9 su zabranjeni (`ck_uplata_mjesec`).
-11. **Brisanje:** brisanje studenta briše njegove telefone, fotografiju, prijave i historiju statusa (CASCADE), ali **ne prolazi ako postoji smještaj ili uplata** (finansijska historija se ne gubi).
-12. **Fotografija** je `MEDIUMBLOB` u posebnoj tabeli, da liste od ~300 redova ne učitavaju slike (NFR-04, NFR-08).
-13. **Reset lozinke (FR-24, Should):** privremena lozinka se upisuje kao novi BCrypt hash, uz `mora_promijeniti_lozinku = TRUE` i rok `privremena_lozinka_do`. Stara lozinka time prestaje važiti; posebna tabela tokena nije potrebna.
-14. **Kolacija** `utf8mb4_hr_0900_ai_ci`: ispravno sortiranje č, ć, dž, đ, š, ž.
+1. Svaki student ima jednu prijavu po akademskoj godini. Sobe i uplate su vezane za tu prijavu, pa svaka godina počinje od nule.
+2. Lista čekanja nije posebna tabela. To su prijave sa statusom „lista čekanja“, poredane po bodovima pa po datumu prijave.
+3. Prijava može biti: prijavljen, lista čekanja, primljen, odbijen ili iseljen. Svaka promjena statusa se bilježi.
+4. Fakultet se upisuje kao tekst. Lista fakulteta služi samo kao prijedlog, pa se može upisati i fakultet kojeg nema na listi.
+5. Kanton se bira iz liste, a općina se upisuje slobodno.
+6. Student mora imati JMBG (domaći) ili broj pasoša (strani). Isti JMBG ne može se unijeti dva puta.
+7. Baza ne dozvoljava dvije aktivne akademske godine, niti da je student istovremeno u dvije sobe.
+8. Kod premještaja se stara soba zatvori, a nova otvori u istom koraku. Ranije sobe ostaju zapisane.
+9. Da li u sobi ima mjesta, provjerava aplikacija pri zaduženju.
+10. Za jedan mjesec može postojati samo jedna uplata (nema rata). Za avgust i septembar uplate nema.
+11. Student koji ima smještaj ili uplate ne može se obrisati, da se ne izgubi finansijska historija.
+12. Fotografije se čuvaju odvojeno, da se liste studenata brže učitavaju.
+13. Kod zaboravljene lozinke dobija se privremena lozinka koja kratko važi i mora se promijeniti pri prvoj prijavi.
+14. Baza ispravno sortira naša slova (č, ć, dž, đ, š, ž).
 
 ---
 
 ## 4. Jedinstvenost i indeksi
 
-| Ograničenje | Pravilo |
-| --- | --- |
-| `uk_student_jmbg` | JMBG jedinstven (dupli odbijen, FR-05) |
-| `uk_student_broj_pasosa` | Pasoš jedinstven (strani) |
-| `uk_prijava_student_ag` | Jedna prijava studenta po AG |
-| `uk_prijava_ag_broj_ugovora` | Broj ugovora jedinstven unutar AG |
-| `uk_akademska_godina_aktivna` | Najviše jedna aktivna AG |
-| `uk_cijena_smjestaja_ag` | Jedna cijena po AG |
-| `uk_soba_broj` | Broj sobe jedinstven |
-| `uk_smjestaj_aktivan` | Najviše jedan aktivan smještaj po prijavi |
-| `uk_uplata_prijava_mjesec` | Jedna uplata po mjesecu (bez rata) |
+Baza ne dozvoljava duplikate na ovim mjestima:
 
-Indeksi za pretragu (FR-14): `student(prezime, ime)`, `student(broj_licne)`, `prijava(akademska_godina_id, status)`, `prijava(fakultet)`, `smjestaj(soba_id, datum_razduzenja)` za popunjenost soba.
+Dva studenta s istim JMBG-om ili istim brojem pasoša.
+Dvije prijave istog studenta u istoj akademskoj godini.
+Isti broj ugovora dva puta u istoj akademskoj godini.
+Dvije aktivne akademske godine.
+Dvije cijene za istu akademsku godinu.
+Dvije sobe s istim brojem.
+Student u dvije sobe u isto vrijeme.
+Dvije uplate za isti mjesec.
 
 ---
 
 ## 5. Obračun duga i `v_student_pregled`
 
-`v_obracun_prijave` računa po prijavi:
-
-- `mjeseci_ukupno`: mjeseci AG (10..7) u kojima je student bio zadužen bar jedan dan, do razduženja ili kraja AG;
-- `mjeseci_do_danas`: isto, ali samo mjeseci koji su već počeli;
-- `obaveza_do_danas = mjeseci_do_danas × cijena AG`;
-- `uplaceno = SUM(uplata.iznos)`;
-- `dug = obaveza_do_danas − uplaceno`.
-
-- `mjeseci_dospjeli` / `dug_dospjeli`: isto, ali samo **završeni** mjeseci (bez tekućeg). Ovo koristi dashboard kartica "Dugovanja – prethodni mjesec" (mockup D-04);
-- `neplacen_prethodni_mjesec`: student je bio zadužen u prethodnom mjesecu, a za taj mjesec nema uplate. Ovo koristi notifikacija "neplaćen prethodni mjesec" (FR-18, N-06).
-
-Premještaj ne udvostručuje mjesec (broje se različiti mjeseci).
-
-> **Otvoreno pitanje za N-04 (Emir):** da li se dio mjeseca naplaćuje puno (pretpostavka u pogledu) ili proporcionalno, i da li se tekući mjesec računa kao dug odmah ili tek nakon isteka. Šema tabela ne zavisi od odgovora; mijenja se samo pogled `R__v_student_pregled.sql` (repeatable migracija), bez nove verzije.
-
-`v_student_pregled` daje **jedan red po prijavi** s kolonama Excela sekretarice (SRS §8.2), mjesečnim uplatama i dugom. Koristi se za "Pregled kao Excel" (sheet aktivni = `stanje_smjestaja = 'AKTIVAN'`, sheet razduženi = `'RAZDUZEN'`), izvještaj ministarstva (§8.5) i custom upite.
+Student plaća svaki mjesec u kojem je bio u domu makar jedan dan, od oktobra do jula.
+Obaveza je broj tih mjeseci puta cijena za tu godinu.
+Dug je obaveza minus ono što je uplaćeno.
+Postoje dvije vrste duga: dug do danas (računa i tekući mjesec) i dug za završene mjesece (bez tekućeg). Ovaj drugi koristi dashboard.
+Za svakog studenta se vidi i da li je platio prethodni mjesec. To koristi notifikacija.
+Ako je student premješten u toku mjeseca, taj mjesec se plaća samo jednom.
+Pregled studenata ima jedan red po studentu za tu godinu, s istim kolonama kao Excel sekretarice, uplatama po mjesecima i dugom. Koristi se za „Pregled kao Excel“, izvještaj za ministarstvo i custom upite.
 
 ---
 
