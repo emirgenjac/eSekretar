@@ -46,3 +46,38 @@ Otvoreno za review (D-08):
 
 1. Djelimičan mjesec (dolazak u toku mjeseca, jul do 15.7.): mockup računa puni mjesec, iznos se može ručno promijeniti.
 2. Nazivi polja (soba, smjestaj, uplata, cijena_smjestaja) uskladiti s ER modelom iz D-02.
+
+---
+
+# Mockupi D-05 (ESK-17) — Emin
+
+Studenti, lista čekanja, prenos i dashboard. Isti okvir kao D-04 i D-06 (`stil.css` + `stil-d06.css`), a ono čega tamo nema je u `stil-d05.css`.
+Fajlovi imaju prefiks `D05-`. Nazivi polja i statusa su iz ER modela (D-02) i dijagrama stanja prijave (D-03).
+
+| Ekran | HTML | PNG | FR |
+| --- | --- | --- | --- |
+| Lista studenata, sve kolone Excela | `D05-01-studenti-lista.html` | `D05-01-studenti-lista.png` | FR-05, FR-14 |
+| Novi student (validacija, dupli JMBG) | `D05-02-student-novi.html` | `D05-02-student-novi.png` | FR-05, FR-11, NFR-03 |
+| Prijava za AG + historija statusa | `D05-03-prijava-ag.html` | `D05-03-prijava-ag.png` | FR-06, FR-10 |
+| Lista čekanja | `D05-04-lista-cekanja.html` | `D05-04-lista-cekanja.png` | FR-10 |
+| Primi sa liste (dijalog) | `D05-05-primi-dijalog.html` | `D05-05-primi-dijalog.png` | FR-10, FR-09 |
+| Odbij prijavu (dijalog, validacija) | `D05-06-odbij-dijalog.html` | `D05-06-odbij-dijalog.png` | FR-10, NFR-03 |
+| Prenos u novu AG, odabir | `D05-07-prenos-odabir.html` | `D05-07-prenos-odabir.png` | FR-13 |
+| Prenos, potvrda | `D05-08-prenos-potvrda.html` | `D05-08-prenos-potvrda.png` | FR-13, NFR-05 |
+| Dashboard | `D05-09-dashboard.html` | `D05-09-dashboard.png` | FR-17, FR-18 |
+
+`D05-01` je snimljen kao široko otvoren prozor (2520 px) da se vide sve kolone. U aplikaciji tabela ima horizontalni scroll, a R.br. i ime ostaju fiksni.
+
+Pravila prikazana na ekranima:
+
+- **Studenti:** kolone i redoslijed kao Excel sekretarice (SRS §8.2, `v_student_pregled`); aktivni = bez razduženja, razduženi su poseban tab; dupli JMBG odbijen; JMBG ili pasoš obavezan; foto se može dodati kasnije uz upozorenje.
+- **Prijava:** fakultet = editable ComboBox (8 prijedloga ili slobodan unos); uvjerenja „DA“ kad su dostavljena; status se mijenja samo akcijama i svaka promjena ide u historiju.
+- **Lista čekanja:** rang = bodovi opadajuće, pa datum prijave rastuće; „Primi“ = prijem + zaduženje sobe u jednoj transakciji (`primljen_naknadno`); „Odbij“ traži razlog; odbijen → primljen nije dozvoljen.
+- **Prenos:** nove prijave u ciljnoj AG sa statusom „prijavljen“ i vezom na staru; kartica se prenosi, ugovor i uvjerenja ne; soba i uplate kreću od nule; sve u jednoj transakciji.
+- **Dashboard (konačan set za FR-17):** popunjenost, slobodna mjesta M/Ž, lista čekanja, dospjeli dug (`dug_dospjeli`, samo završeni mjeseci); popunjenost po spratu, prijave po statusu, uplate po mjesecima (obaveza / uplaćeno), prvih 5 s liste čekanja, notifikacije. Sve za aktivnu AG.
+
+Otvoreno za review (D-08):
+
+1. Prenos: mockup prenosi i fakultet, trajanje i godinu upisa (da se ne kucaju ponovo). SRS izričito navodi samo karticu, pa treba potvrditi.
+2. Bodovi za rang: aplikacija ih samo upisuje, ne računa. Ako komisija ima formulu, to je posebna stavka (CR).
+3. Godina studija se poslije prenosa ne povećava automatski, sekretarica je provjerava.

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Prijava za AG</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+  <link rel="stylesheet" href="stil-d05.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Prijava za AG</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a class="active" href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <div class="head">
+            <button class="btn secondary">←</button>
+            <h1>Kovačević (Edin) Tarik <span class="badge ok" style="vertical-align:3px">primljen</span></h1>
+            <button class="btn secondary">Stavi na listu čekanja</button>
+            <button class="btn danger">Odbij</button>
+            <button class="btn">Snimi prijavu</button>
+          </div>
+          <div class="ftabs"><span>Lični podaci</span><span class="on">Prijava 2026/2027</span><span>Smještaj</span><span>Uplate</span><span>Historija</span></div>
+          <div class="card compact">
+            <div class="form2">
+              <div>
+                <div class="row"><label>Fakultet</label><div class="combo"><input value="Politehnički fakultet"><span class="arrow">▼</span>
+                  <ul><li>Fakultet inženjerstva i prirodnih nauka</li><li>Mašinski fakultet</li><li>Filozofski fakultet</li><li>Ekonomski fakultet</li><li>Pravni fakultet</li><li>Medicinski fakultet</li><li class="hl">Politehnički fakultet</li><li>Islamski pedagoški fakultet</li><li class="free">Može se upisati i fakultet kojeg nema na listi</li></ul></div></div>
+                <div class="row"><label>Godina / ciklus</label><input value="III"></div>
+                <div class="row"><label>Trajanje studija</label><input value="4"></div>
+                <div class="row"><label>Godina upisa</label><input value="2024"></div>
+                <div class="row"><label>Datum prijave</label><input value="09.09.2026."></div>
+              </div>
+              <div>
+                <div class="row"><label>Broj ugovora</label><input value="09-130-820-312/26"></div>
+                <div class="row"><label>Broj kartice</label><input value="2691"></div>
+                <div class="row"><label>Bodovi</label><input value="41,50"></div>
+                <div class="row"><label>Uvjerenja</label><label class="chk"><input type="checkbox" checked> ljekarsko</label><label class="chk"><input type="checkbox" checked> fakultetsko</label></div>
+                <div class="row"><label>Napomena</label><input></div>
+              </div>
+            </div>
+          </div>
+          <div class="split" style="grid-template-columns:1.6fr 1fr;margin-top:10px">
+            <div>
+              <h2 style="margin-top:0">Historija statusa</h2>
+              <table class="nw">
+                <tr><th>Datum</th><th>Promjena</th><th>Napomena</th></tr>
+                <tr><td>09.09.2026.</td><td>— → prijavljen</td><td class="muted">unos s konkursa</td></tr>
+                <tr><td>20.09.2026.</td><td>prijavljen → lista čekanja</td><td class="muted">bodovi 41,50</td></tr>
+                <tr><td>03.10.2026.</td><td>lista čekanja → primljen</td><td class="muted">naknadno, soba 3</td></tr>
+              </table>
+            </div>
+            <div>
+              <h2 style="margin-top:0">Ranije prijave</h2>
+              <table class="nw">
+                <tr><th>AG</th><th>Status</th><th class="num">Soba</th></tr>
+                <tr><td>2025/2026</td><td><span class="badge off">iseljen</span></td><td class="num">12</td></tr>
+              </table>
+            </div>
+          </div>
+          <p class="note">FR-06: fakultet je ComboBox koji se može editovati (8 prijedloga iz SRS §8.4 ili slobodan unos). Uvjerenja su „DA“ kad su dostavljena. Status se ne mijenja ručno, nego dugmadima i zaduženjem, i svaka promjena ide u historiju.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

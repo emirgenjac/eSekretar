@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Prenos</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+  <link rel="stylesheet" href="stil-d05.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Prenos</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a class="active" href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <div class="head">
+            <h1>Prenos u novu akademsku godinu</h1>
+            <div class="steps" style="margin:0"><span class="done">1. Odabir studenata ✓</span><span class="on">2. Potvrda</span><span>3. Rezultat</span></div>
+          </div>
+          <div class="toolbar">
+            <label class="muted">Iz AG</label><select><option>2026/2027 (aktivna)</option></select>
+            <span>→</span>
+            <label class="muted">U AG</label><select><option>2027/2028 (u pripremi)</option></select>
+            <select><option>Fakultet: svi</option></select>
+            <label class="chk"><input type="checkbox" checked> samo primljeni i iseljeni</label>
+          </div>
+          <div class="info" style="margin-top:0">
+            <span class="yes">Prenosi se:</span> student, broj kartice, fakultet, trajanje, godina upisa ·
+            <span class="no">Ne prenosi se:</span> broj ugovora, uvjerenja, soba, uplate, bodovi.<br>
+            Nova prijava dobija status <b>prijavljen</b> i vezu na prijavu iz 2026/2027. Godinu studija provjeriti poslije prenosa.
+          </div>
+          <table class="nw">
+            <tr><th><input type="checkbox"></th><th>Student</th><th>Fakultet</th><th>God.</th><th>Status 26/27</th><th>Napomena</th></tr>
+              <tr><td><input type="checkbox" checked></td><td>Hodžić (Senad) Amar</td><td class="ell">Politehnički fakultet</td><td>II</td><td><span class="badge ok">primljen</span></td><td></td></tr>
+              <tr><td><input type="checkbox" checked></td><td>Mehić (Mirsad) Lejla</td><td class="ell">Filozofski fakultet</td><td>I</td><td><span class="badge ok">primljen</span></td><td></td></tr>
+              <tr><td><input type="checkbox" checked></td><td>Alić (Fikret) Selma</td><td class="ell">Medicinski fakultet</td><td>I</td><td><span class="badge off">iseljen</span></td><td></td></tr>
+              <tr><td><input type="checkbox"></td><td>Salihović (Kemal) Dino</td><td class="ell">Mašinski fakultet</td><td>IV</td><td><span class="badge ok">primljen</span></td><td><span class="badge warn">završna godina (4/4)</span></td></tr>
+              <tr><td><input type="checkbox" checked></td><td>Ćatić (Mirsad) Lejla</td><td class="ell">Ekonomski fakultet</td><td>II</td><td><span class="badge ok">primljen</span></td><td><span class="badge dug">dug 330,00 KM</span></td></tr>
+              <tr class="dis"><td><input type="checkbox" disabled></td><td>Delić (Asim) Emin</td><td class="ell">Fakultet inženjerstva i prirodnih nauka</td><td>II</td><td>primljen</td><td><span class="badge off">već ima prijavu u 27/28</span></td></tr>
+            <tr><td colspan="6" class="muted">… još 52 studenta</td></tr>
+          </table>
+          <div class="actions">
+            <span class="muted" style="align-self:center">Odabrano <b>54</b> od 58</span>
+            <div style="flex:1"></div>
+            <button class="btn secondary">Otkaži</button>
+            <button class="btn">Dalje: potvrda (54)</button>
+          </div>
+          <p class="note">FR-13/NFR-05: prenos je jedna transakcija. Korak 3 prikazuje broj prenesenih prijava i dugme „Otvori studente u 2027/2028“.</p>
+        </div>
+        <div class="modal-bg"></div>
+        <div class="modal" style="left:140px;top:120px;width:500px">
+          <div class="mtitle">Potvrda prenosa · 2026/2027 → 2027/2028</div>
+          <div class="mbody">
+            <div class="row"><label>Prenosi se</label><span class="static"><b>54</b> studenta</span></div>
+            <div class="row"><label>Nije odabrano</label><span class="static">3 <span class="muted">(1 završna godina, 2 ručno isključena)</span></span></div>
+            <div class="row"><label>Preskočeno</label><span class="static">1 <span class="muted">(već ima prijavu u 2027/2028)</span></span></div>
+            <div class="row"><label>Status novih prijava</label><span class="static">prijavljen</span></div>
+            <div class="info">Sve se upisuje odjednom. Ako upis i jedne prijave ne uspije, ne upisuje se ništa i stanje ostaje kao prije prenosa.</div>
+          </div>
+          <div class="actions"><button class="btn secondary">Nazad</button><button class="btn">Prenesi (54)</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

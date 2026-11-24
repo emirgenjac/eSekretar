@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Novi student</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+  <link rel="stylesheet" href="stil-d05.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Novi student</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a class="active" href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <div class="head">
+            <button class="btn secondary">←</button>
+            <h1>Novi student</h1>
+            <button class="btn secondary">Otkaži</button>
+            <button class="btn secondary">Snimi</button>
+            <button class="btn">Snimi i dodaj prijavu</button>
+          </div>
+          <div class="ftabs"><span class="on">Lični podaci</span><span class="muted">Prijava za AG</span><span class="muted">Smještaj</span><span class="muted">Uplate</span><span class="muted">Historija</span></div>
+          <div class="card compact" style="display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:14px;align-items:start">
+            <div>
+              <div class="form2">
+                <div>
+                  <div class="row"><label>Prezime *</label><input value="Kovačević"></div>
+                  <div class="row"><label>Ime *</label><input value="Tarik"></div>
+                  <div class="row"><label>Ime roditelja</label><input value="Edin"></div>
+                  <div class="row"><label>Spol *</label><select><option>M</option><option>Ž</option></select></div>
+                  <div class="row"><label>JMBG</label><input class="invalid" value="0911003170045"></div>
+                  <p class="hint2 errtxt">Već postoji: Kovačević (Edin) Tarik, soba 3. <a href="#">Otvori</a></p>
+                  <div class="row"><label>Broj lične</label><input value="11K774012"></div>
+                  <div class="row"><label>Napomena</label><input></div>
+                </div>
+                <div>
+                  <div class="row"><label>Kanton</label><select><option>ZDK · Zeničko-dobojski</option></select></div>
+                  <div class="row"><label>Općina</label><input value="Kakanj"></div>
+                  <div class="row"><label>Adresa</label><input value="Alije Izetbegovića 33"></div>
+                  <div class="row"><label>Telefon</label><input value="062 774 093"></div>
+                  <div class="row"><label>E-mail</label><input value="tarik.kovacevic@gmail.com"></div>
+                  <div class="row"><label>Tel. roditelja</label><div class="tel"><input value="otac"><input value="061 552 019"></div></div>
+                  <div class="row"><label></label><div class="tel"><input value="majka"><input value="061 552 020"></div></div>
+                  <div class="row" style="margin-top:-4px"><label></label><a class="addlink" href="#">+ dodaj broj</a></div>
+                </div>
+              </div>
+              <div class="strani">
+                <label class="chk"><input type="checkbox"> Strani student</label>
+                <input disabled placeholder="Država"><input disabled placeholder="Broj pasoša"><input disabled placeholder="Program razmjene"><input disabled placeholder="Boravak od – do">
+              </div>
+            </div>
+            <div class="photo-col">
+              <div class="photo">Nema<br>fotografije</div>
+              <button class="btn secondary sm">Dodaj…</button>
+              <div class="warnbox">Obavezna po konkursu, može i kasnije.</div>
+            </div>
+          </div>
+          <p class="note">FR-05/NFR-03: forma se ne snima dok ima grešaka, polje s greškom je označeno. Dupli JMBG odbija i aplikacija i baza (<code>uk_student_jmbg</code>). Potreban je JMBG ili broj pasoša; kvačica „Strani student“ otključava polja iz FR-11. Ostali tabovi se otvaraju kad je student snimljen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
