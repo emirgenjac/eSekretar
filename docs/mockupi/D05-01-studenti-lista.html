@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Studenti</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+  <link rel="stylesheet" href="stil-d05.css">
+</head>
+<body>
+  <div class="app" style="width:2480px">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Studenti</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a class="active" href="#">Studenti</a>
+        <a href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Studenti</h1>
+          <div class="toolbar">
+            <div class="tabs"><span class="on">Aktivni (61)</span><span>Razduženi (5)</span><span>Sve prijave AG (80)</span></div>
+            <input placeholder="Ime, prezime, JMBG, lična, pasoš, soba…" style="width:230px">
+            <select><option>Fakultet: svi</option></select>
+            <select><option>Kanton: svi</option></select>
+            <select><option>Spol: svi</option></select>
+            <select><option>Godina: sve</option></select>
+            <label class="chk"><input type="checkbox"> samo strani</label>
+            <label class="chk"><input type="checkbox"> bez fotografije</label>
+            <label class="chk"><input type="checkbox"> mjeseci uplata (X–VII)</label>
+            <div class="spacer"></div>
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+            <button class="btn">Novi student</button>
+          </div>
+          <div class="scroll-x">
+            <table class="wide">
+              <tr><th class="fix1"></th><th class="fix2"></th><th class="grp" colspan="7">Lični podaci i kontakt</th><th class="grp" colspan="2">Identifikacija</th><th class="grp" colspan="6">Prijava AG 2026/2027</th><th class="grp" colspan="3">Smještaj</th><th class="grp" colspan="2">Uvjerenja</th><th class="grp" colspan="2"></th></tr>
+              <tr><th class="num fix1">R.br.</th><th class="fix2">Prezime (ime roditelja) Ime</th><th>Tel. roditelja</th><th>Kanton</th><th>Općina</th><th>Adresa</th><th>Spol</th><th>E-mail</th><th>Telefon</th><th class="l">JMBG</th><th>Lična</th><th class="l">Ugovor</th><th>Fakultet</th><th>God.</th><th class="num">Traj.</th><th class="num">Upis</th><th>Datum prijave</th><th class="num l">Soba</th><th>Zaduženje</th><th class="num">Kartica</th><th class="l">Ljek.</th><th>Fak.</th><th class="l">Foto</th><th class="num">Dug (KM)</th></tr>
+              <tr><td class="num fix1">1</td><td class="fix2">Hodžić (Senad) Amar</td><td>061 234 118, 062 410 302</td><td>ZDK</td><td>Zenica</td><td>Bulevar Kulina bana 12</td><td><span class="badge m">M</span></td><td>amar.hodzic@gmail.com</td><td>061 778 210</td><td class="l">1403004170031</td><td>07K123456</td><td class="l">09-130-820-301/26</td><td>Politehnički fakultet</td><td>II</td><td class="num">4</td><td class="num">2025</td><td>02.09.2026.</td><td class="num l">1</td><td>01.10.2026.</td><td class="num">2651</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">2</td><td class="fix2">Mehić (Mirsad) Lejla</td><td>063 118 440</td><td>SBK</td><td>Travnik</td><td>Šumeća 4</td><td><span class="badge z">Ž</span></td><td>lejla.mehic@hotmail.com</td><td>062 301 554</td><td class="l">2207005175012</td><td>09E554120</td><td class="l">09-130-820-302/26</td><td>Filozofski fakultet</td><td>I</td><td class="num">4</td><td class="num">2026</td><td>03.09.2026.</td><td class="num l">21</td><td>01.10.2026.</td><td class="num">2652</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr class="sel"><td class="num fix1">3</td><td class="fix2">Kovačević (Edin) Tarik</td><td>061 552 019, 061 552 020</td><td>ZDK</td><td>Kakanj</td><td>Alije Izetbegovića 33</td><td><span class="badge m">M</span></td><td>tarik.kovacevic@gmail.com</td><td>062 774 093</td><td class="l">0911003170045</td><td>11K774012</td><td class="l">09-130-820-312/26</td><td>Politehnički fakultet</td><td>III</td><td class="num">4</td><td class="num">2024</td><td>09.09.2026.</td><td class="num l">3</td><td>03.10.2026.</td><td class="num">2691</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num"><span class="red">165,00</span></td></tr>
+              <tr><td class="num fix1">4</td><td class="fix2">Begić (Nermin) Kenan</td><td>062 994 201</td><td>TK</td><td>Gračanica</td><td>Mehmeda Spahe 8</td><td><span class="badge m">M</span></td><td>kenan.begic@gmail.com</td><td>061 095 337</td><td class="l">3001004180022</td><td>13T220981</td><td class="l">09-130-820-304/26</td><td>Mašinski fakultet</td><td>II</td><td class="num">4</td><td class="num">2025</td><td>04.09.2026.</td><td class="num l">4</td><td>01.10.2026.</td><td class="num">2654</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">5</td><td class="fix2">Alić (Fikret) Selma</td><td>061 330 875</td><td>ZDK</td><td>Maglaj</td><td>Prijeko 17</td><td><span class="badge z">Ž</span></td><td>selma.alic@gmail.com</td><td>063 220 481</td><td class="l">1806005175020</td><td>07K908134</td><td class="l">09-130-820-305/26</td><td>Medicinski fakultet</td><td>I</td><td class="num">6</td><td class="num">2026</td><td>01.09.2026.</td><td class="num l">24</td><td>04.11.2026.</td><td class="num">2655</td><td class="l">DA</td><td><span class="muted">—</span></td><td class="l"><span class="badge warn">nema</span></td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">6</td><td class="fix2">Delić (Asim) Emin</td><td>062 101 404</td><td>BPK</td><td>Goražde</td><td>Zaima Imamovića 21</td><td><span class="badge m">M</span></td><td>emin.delic@gmail.com</td><td>061 401 662</td><td class="l">0505004140017</td><td>15B337120</td><td class="l">09-130-820-306/26</td><td>Fakultet inženjerstva i prirodnih nauka</td><td>II</td><td class="num">4</td><td class="num">2025</td><td>05.09.2026.</td><td class="num l">6</td><td>01.10.2026.</td><td class="num">2656</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">7</td><td class="fix2">Softić (Suad) Faris</td><td>063 870 115</td><td>ZDK</td><td>Visoko</td><td>Alije Izetbegovića 92</td><td><span class="badge m">M</span></td><td>faris.softic@gmail.com</td><td>062 115 870</td><td class="l">2112003170058</td><td>07K310776</td><td class="l">09-130-820-307/26</td><td>Ekonomski fakultet</td><td>III</td><td class="num">3</td><td class="num">2024</td><td>06.09.2026.</td><td class="num l">7</td><td>01.10.2026.</td><td class="num">2657</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">8</td><td class="fix2">Hadžić (Hasan) Hana</td><td>061 507 228, 062 507 229</td><td>SBK</td><td>Bugojno</td><td>Sultan Ahmedova 5</td><td><span class="badge z">Ž</span></td><td>hana.hadzic@gmail.com</td><td>061 228 507</td><td class="l">1110004175033</td><td>09E120558</td><td class="l">09-130-820-308/26</td><td>Pravni fakultet</td><td>II</td><td class="num">4</td><td class="num">2025</td><td>06.09.2026.</td><td class="num l">20</td><td>01.10.2026.</td><td class="num">2658</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+              <tr><td class="num fix1">9</td><td class="fix2">Omerović (Zijad) Armin</td><td>062 338 771</td><td>ZDK</td><td>Zavidovići</td><td>Hasana Kikića 2</td><td><span class="badge m">M</span></td><td>armin.omerovic@gmail.com</td><td>063 771 338</td><td class="l">0402005170049</td><td>07K441902</td><td class="l">09-130-820-309/26</td><td>Islamski pedagoški fakultet</td><td>I</td><td class="num">4</td><td class="num">2026</td><td>07.09.2026.</td><td class="num l">9</td><td>01.10.2026.</td><td class="num">2659</td><td class="l">DA</td><td>DA</td><td class="l">✓</td><td class="num">0,00</td></tr>
+            </table>
+          </div>
+          <p class="muted" style="margin-top:6px">Prikazano 9 od 61 · sortirano po R.br. · klik na zaglavlje mijenja sortiranje · dvoklik na red otvara karticu studenta</p>
+          <p class="note">FR-05/FR-14: kolone i redoslijed kao u Excelu sekretarice (SRS §8.2, pogled <code>v_student_pregled</code>). R.br. je samo za prikaz, nije ključ. Prve dvije kolone ostaju vidljive pri horizontalnom scrollu. „Aktivni“ = bez razduženja, „Razduženi“ = drugi sheet. Kvačica „mjeseci uplata“ dodaje kolone X–VII kao u matrici (D06-05). Pretraga i filteri rade nad učitanom listom (~300 redova &lt; 1 s).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

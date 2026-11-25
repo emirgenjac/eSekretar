@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="utf-8">
+  <title>eSekretar — Lista čekanja</title>
+  <link rel="stylesheet" href="stil.css">
+  <link rel="stylesheet" href="stil-d06.css">
+  <link rel="stylesheet" href="stil-d05.css">
+</head>
+<body>
+  <div class="app">
+    <div class="titlebar">
+      <span class="caption">eSekretar — Lista čekanja</span>
+      <div class="win-controls">
+        <button type="button">─</button>
+        <button type="button">☐</button>
+        <button type="button" class="close">✕</button>
+      </div>
+    </div>
+    <div class="shell">
+      <nav class="sidebar">
+        <div class="brand">eSekretar</div>
+        <a href="#">Dashboard</a>
+        <a href="#">Studenti</a>
+        <a class="active" href="#">Lista čekanja</a>
+        <a href="#">Sobe</a>
+        <a href="#">Uplate</a>
+        <a href="#">Prenos</a>
+        <a href="#">Izvještaji</a>
+        <a href="#">Custom upiti</a>
+        <a href="#">Akad. godine / cijena</a>
+        <a href="#">Korisnici</a>
+        <a href="#">Uvoz Excel</a>
+        <a href="#">Backup</a>
+        <a href="#">Postavke</a>
+      </nav>
+      <div class="main">
+        <div class="header">
+          <label>AG</label>
+          <select><option>2026/2027</option><option>2025/2026</option></select>
+          <input placeholder="Pretraga (ime, JMBG, ugovor…)">
+          <button type="button" class="icon-btn" title="Notifikacije">🔔 2</button>
+          <div class="spacer"></div>
+          <span class="muted" title="sekretarica@sczenica.ba">sekretarica@sczenica.ba</span>
+          <button type="button" class="icon-btn">Odjava</button>
+        </div>
+        <div class="content">
+          <h1>Lista čekanja</h1>
+          <div class="toolbar">
+            <div class="tabs"><span class="on">Na listi (8)</span><span>Primljeni naknadno (3)</span><span>Odbijeni (2)</span></div>
+            <select><option>Spol: svi</option><option>M</option><option>Ž</option></select>
+            <div class="spacer"></div>
+            <button class="btn secondary">Izvezi PDF</button>
+            <button class="btn secondary">Izvezi Excel (.xlsx)</button>
+          </div>
+          <div class="card summary">
+            <span>Na listi <b>8</b> <span class="muted">(M 3 · Ž 5)</span></span>
+            <span>Slobodna mjesta <b class="green">13</b> <span class="muted">(M 9 · Ž 4)</span></span>
+            <span class="muted">Rang: bodovi ↓, pa datum prijave ↑</span>
+          </div>
+          <table class="nw">
+            <tr><th class="num">Rang</th><th>Student</th><th>Fakultet</th><th>God.</th><th class="num">Bodovi</th><th>Prijava</th><th></th></tr>
+            <tr><td class="num">1</td><td>Hasanović (Mehmed) Ajla <span class="badge z">Ž</span></td><td class="ell">Medicinski fakultet</td><td>I</td><td class="num">48,50</td><td>02.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr class="sel"><td class="num">2</td><td>Mujkić (Senad) Haris <span class="badge m">M</span></td><td class="ell">Mašinski fakultet</td><td>II</td><td class="num">46,00</td><td>05.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">3</td><td>Bešić (Ramo) Amina <span class="badge z">Ž</span></td><td class="ell">Filozofski fakultet</td><td>I</td><td class="num">44,25</td><td>01.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">4</td><td>Čaušević (Nedim) Emina <span class="badge z">Ž</span></td><td class="ell">Ekonomski fakultet</td><td>III</td><td class="num">44,25</td><td>08.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">5</td><td>Zukić (Hamdo) Mirza <span class="badge m">M</span></td><td class="ell">Fakultet inženjerstva i prirodnih nauka</td><td>I</td><td class="num">41,00</td><td>03.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">6</td><td>Kurtović (Esad) Lamija <span class="badge z">Ž</span></td><td class="ell">Pravni fakultet</td><td>II</td><td class="num">39,75</td><td>07.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">7</td><td>Ibrišević (Safet) Nedim <span class="badge m">M</span></td><td class="ell">Politehnički fakultet</td><td>I</td><td class="num">37,50</td><td>04.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+            <tr><td class="num">8</td><td>Đulić (Muhamed) Sara <span class="badge z">Ž</span></td><td class="ell">Islamski pedagoški fakultet</td><td>I</td><td class="num">35,00</td><td>10.09.2026.</td><td><button class="btn sm">Primi</button> <button class="btn danger sm">Odbij</button></td></tr>
+          </table>
+          <p class="note">FR-10/NFR-03: bez razloga se prijava ne može odbiti. Odbijen → primljen nije dozvoljen (dijagram stanja, D-03).</p>
+        </div>
+        <div class="modal-bg"></div>
+        <div class="modal" style="left:130px;top:110px;width:500px">
+          <div class="mtitle">Odbij prijavu · Mujkić (Senad) Haris (M, rang 2)</div>
+          <div class="mbody">
+            <div class="row" style="align-items:flex-start"><label>Razlog *</label><textarea rows="3" class="invalid" style="border-color:#b91c1c;background:#fef2f2"></textarea></div>
+            <p class="hintline errtxt">Razlog odbijanja je obavezan.</p>
+            <div class="row"><label>Datum</label><span class="static">18.11.2026.</span></div>
+            <div class="info">Status: lista čekanja → <b>odbijen</b>. Odbijena prijava se više ne može primiti u ovoj AG. Razlog ostaje u historiji statusa.</div>
+          </div>
+          <div class="actions"><button class="btn secondary">Otkaži</button><button class="btn danger">Odbij prijavu</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

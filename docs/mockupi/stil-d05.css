@@ -1,0 +1,100 @@
+/* Dodaci za D-05 (Emin) uz stil.css (D-04) i stil-d06.css (D-06). Samo elementi kojih tamo nema. */
+
+/* Široka lista studenata (sve kolone Excela), prve dvije kolone ostaju vidljive pri scrollu */
+table.wide { font-size: 11.5px; }
+table.wide th, table.wide td { padding: 6px 7px; white-space: nowrap; }
+table.wide th { font-size: 10.5px; }
+table.wide .fix1, table.wide .fix2 { position: sticky; background: #fff; z-index: 1; }
+table.wide th.fix1, table.wide th.fix2 { background: #f8fafc; }
+table.wide .fix1 { left: 0; min-width: 44px; }
+table.wide .fix2 { left: 44px; border-right: 2px solid #cbd5e1; }
+table.wide tr.sel td { background: #e0f2fe; }
+table.wide tr.raz td { color: #64748b; }
+table.wide th.grp { text-align: center; background: #eef2f7; border-left: 1px solid #e2e8f0; }
+table.wide td.l, table.wide th.l { border-left: 1px solid #e2e8f0; }
+
+/* Forma studenta: tabovi kartice, foto, polja u dvije kolone */
+.ftabs { display: flex; gap: 2px; border-bottom: 1px solid #cbd5e1; margin-bottom: 12px; }
+.ftabs span { padding: 7px 14px; color: #475569; border: 1px solid transparent; border-bottom: none; border-radius: 4px 4px 0 0; }
+.ftabs span.on { background: #fff; color: #0f172a; border-color: #cbd5e1; margin-bottom: -1px; font-weight: 600; }
+.form2 { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 18px; }
+.form2 .row label { width: 118px; }
+.photo { width: 132px; height: 160px; border: 2px dashed #cbd5e1; border-radius: 6px; display: flex; align-items: center; justify-content: center; text-align: center; color: #94a3b8; font-size: 11.5px; background: #f8fafc; }
+.photo-col { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+.warnbox { padding: 7px 9px; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 4px; font-size: 11px; color: #92400e; }
+.errtxt { color: #991b1b; font-size: 11px; }
+.hint2 { margin: -6px 0 10px 128px; }
+.tel { display: flex; gap: 6px; flex: 1; min-width: 0; }
+.tel input:first-child { flex: 0 0 120px; }
+.row .addlink { color: #0369a1; font-size: 11.5px; white-space: nowrap; }
+.row input:disabled, .row select:disabled { background: #f1f5f9; color: #94a3b8; }
+fieldset.box { border: 1px solid #e2e8f0; border-radius: 6px; padding: 8px 12px 2px; margin-top: 6px; }
+fieldset.box legend { padding: 0 6px; font-size: 11px; font-weight: 600; color: #475569; text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* Editable ComboBox (fakultet): otvorena lista prijedloga */
+.combo { position: relative; flex: 1; min-width: 0; }
+.combo input { width: 100%; }
+.combo .arrow { position: absolute; right: 8px; top: 7px; color: #64748b; font-size: 10px; }
+.combo ul { position: absolute; left: 0; right: 0; top: 31px; list-style: none; background: #fff; border: 1px solid #94a3b8; border-radius: 4px; box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18); z-index: 5; font-size: 12px; }
+.combo li { padding: 5px 10px; }
+.combo li.hl { background: #e0f2fe; }
+.combo li.free { border-top: 1px solid #e2e8f0; color: #0369a1; }
+
+/* Koraci (prenos) */
+.steps { display: flex; gap: 6px; margin-bottom: 12px; font-size: 12px; }
+.steps span { padding: 5px 12px; border-radius: 999px; background: #e2e8f0; color: #475569; }
+.steps span.on { background: #0f172a; color: #fff; }
+.steps span.done { background: #dcfce7; color: #166534; }
+.yes { color: #166534; }
+.no { color: #991b1b; }
+ul.plain { list-style: none; font-size: 12px; line-height: 1.75; }
+tr.dis td { color: #94a3b8; background: #f8fafc; }
+
+/* Kompaktno: naslov s dugmadima, gušći redovi forme, tabele bez prelamanja */
+.head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.head h1 { margin: 0; flex: 1; }
+.compact { padding: 12px 14px 4px; }
+.compact .row { margin-bottom: 6px; }
+.compact .row input, .compact .row select { padding: 5px 8px; }
+.compact .form2 .row label { width: 96px; }
+.compact .hint2 { margin: -3px 0 6px 106px; }
+.tel input:first-child { flex: 0 0 56px; }
+.strani { display: flex; gap: 6px; align-items: center; margin: 4px 0 8px; padding-top: 8px; border-top: 1px solid #e2e8f0; }
+.strani input { flex: 1; min-width: 0; border: 1px solid #e2e8f0; border-radius: 4px; padding: 5px 7px; font-size: 12px; background: #f1f5f9; }
+.strani .chk { white-space: nowrap; display: flex; gap: 5px; align-items: center; color: #475569; }
+.photo { width: 112px; height: 136px; }
+table.nw th, table.nw td { white-space: nowrap; padding: 6px 7px; }
+table.nw td.ell { max-width: 170px; overflow: hidden; text-overflow: ellipsis; }
+
+/* Dashboard: KPI i jednostavni grafikoni (u aplikaciji JavaFX BarChart/StackedBarChart) */
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 10px; }
+.kpis .card { padding: 9px 12px; }
+.kpis h2 { margin: 0; font-size: 11px; }
+.kpis .stat { font-size: 21px; margin: 1px 0; }
+.bar { height: 6px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin: 3px 0; }
+.bar i { display: block; height: 100%; background: #0f172a; }
+.hbars { display: grid; grid-template-columns: 78px 1fr 44px; gap: 5px 6px; align-items: center; font-size: 11.5px; }
+.hbars .track { height: 11px; background: #f1f5f9; border-radius: 3px; overflow: hidden; display: flex; }
+.hbars .track i { display: block; height: 100%; }
+.hbars .track i.m { background: #0284c7; }
+.hbars .track i.z { background: #db2777; }
+.hbars .track i.f { background: #475569; }
+.hbars .num { text-align: right; }
+.cols { display: flex; align-items: flex-end; gap: 4px; height: 96px; padding: 0 2px; border-bottom: 1px solid #cbd5e1; }
+.cols .c { flex: 1; display: flex; gap: 1px; align-items: flex-end; height: 100%; }
+.cols .c i { flex: 1; display: block; border-radius: 2px 2px 0 0; }
+.cols .c i.ob { background: #cbd5e1; }
+.cols .c i.up { background: #16a34a; }
+.cols .c i.part { background: #86efac; }
+.collabels { display: flex; gap: 4px; padding: 3px 2px 0; font-size: 10px; color: #64748b; }
+.collabels span { flex: 1; text-align: center; }
+.legend { display: flex; gap: 10px; font-size: 11px; color: #475569; margin-top: 5px; flex-wrap: wrap; }
+.legend i { display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin-right: 4px; vertical-align: -1px; }
+.dash { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.dash .card { padding: 10px 12px; }
+.dash .card h2 { margin: 0 0 8px; display: flex; justify-content: space-between; font-size: 11px; }
+.dash .card h2 a { text-transform: none; letter-spacing: 0; font-weight: 500; color: #0369a1; text-decoration: none; }
+.dash table { font-size: 11.5px; }
+.dash th, .dash td { padding: 4px 6px; }
+.notif { margin-top: 10px; padding: 8px 12px; display: grid; grid-template-columns: auto 1fr auto auto 1fr auto auto 1fr auto; gap: 8px; align-items: center; font-size: 11.5px; }
+.notif a { color: #0369a1; text-decoration: none; margin-right: 8px; }
